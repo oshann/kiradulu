@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Direct Google to your sitemap
-Sitemap: https://proproical.com/sitemap.xml
+Sitemap: https://kiradulu.app/sitemap.xml
