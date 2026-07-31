@@ -342,10 +342,6 @@
 
             <div class="lg:col-span-8 space-y-4">
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white col-span-2 md:col-span-1">
-                        <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Net Take-Home Pay</p>
-                        <p id="result-net" class="text-3xl font-black break-words leading-tight">RM0</p>
-                    </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
                         <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Gross Salary</p>
                         <p id="result-gross" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
@@ -353,6 +349,10 @@
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
                         <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Deductions</p>
                         <p id="result-total-deductions" class="text-2xl font-black text-red-500 dark:text-red-300">RM0</p>
+                    </div>
+                    <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white col-span-2 md:col-span-1">
+                        <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Net Take-Home Pay</p>
+                        <p id="result-net" class="text-3xl font-black break-words leading-tight">RM0</p>
                     </div>
                 </div>
 
@@ -370,13 +370,17 @@
                             </div>
                         </div>
                         <div>
-                            <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2">Employer Also Contributes (Not Deducted From You)</p>
+                            <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2">Employer Also Contributes</p>
                             <div class="space-y-2">
                                 <div class="flex justify-between"><span>EPF (Employer)</span><span id="result-epf-employer" class="font-bold text-slate-400">RM0</span></div>
                                 <div class="flex justify-between"><span>SOCSO (Employer)</span><span id="result-socso-employer" class="font-bold text-slate-400">RM0</span></div>
                                 <div class="flex justify-between"><span>EIS (Employer)</span><span id="result-eis-employer" class="font-bold text-slate-400">RM0</span></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center">
+                        <span class="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest">Total EPF Contribution (Employee + Employer)</span>
+                        <span id="result-total-epf" class="font-black text-blue-700 dark:text-blue-400 text-sm">RM0</span>
                     </div>
                 </div>
 
