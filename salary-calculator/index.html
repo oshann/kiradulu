@@ -201,6 +201,11 @@
                 "@type": "Question",
                 "name": "Is this PCB / tax estimate exact?",
                 "acceptedAnswer": { "@type": "Answer", "text": "No. This tool estimates monthly tax by annualizing your salary and applying LHDN's YA2025 progressive tax brackets with standard personal and EPF relief only. Actual PCB (Potongan Cukai Bulanan) uses LHDN's official schedule, which also factors in marital status, number of children, and other reliefs. Use this as a guide, not a substitute for your payslip or LHDN's own calculator." }
+            },
+            {
+                "@type": "Question",
+                "name": "What is LINDUNG 24 Jam (SKBBK)?",
+                "acceptedAnswer": { "@type": "Answer", "text": "A new PERKESO scheme effective 1 June 2026 covering non-work-related accidents around the clock. It's employee-only and voluntary for local employees (mandatory for foreign workers), so it's off by default in this calculator since most local employees aren't automatically enrolled." }
             }
         ]
     }
@@ -322,6 +327,12 @@
                                 <option value="60plus">60 and above</option>
                             </select>
                         </div>
+                        <div class="flex items-start gap-2 pt-1">
+                            <input type="checkbox" id="lindung24jam" class="mt-0.5 w-3.5 h-3.5 accent-blue-700 shrink-0">
+                            <label for="lindung24jam" class="text-[10px] font-bold text-slate-500 dark:text-slate-400 leading-snug">
+                                Opt in to LINDUNG 24 Jam (SKBBK) -- voluntary 24-hour accident protection, 0.75% of wage, employee-only. Off by default.
+                            </label>
+                        </div>
                     </div>
                     <p id="socso-eis-note" class="hidden text-[10px] text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
                         Employees aged 60+ move to reduced SOCSO/EIS category rates not modeled here -- shown as RM0. Consult PERKESO for exact figures.
@@ -354,6 +365,7 @@
                                 <div class="flex justify-between"><span>EPF (Employee)</span><span id="result-epf-employee" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
                                 <div class="flex justify-between"><span>SOCSO (Employee)</span><span id="result-socso-employee" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
                                 <div class="flex justify-between"><span>EIS (Employee)</span><span id="result-eis-employee" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
+                                <div id="lindung24jam-row" class="hidden flex justify-between"><span>Lindung 24 Jam (SKBBK)</span><span id="result-lindung24jam" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
                                 <div class="flex justify-between border-t dark:border-slate-700 pt-2"><span class="font-bold">Estimated Monthly Tax (PCB)</span><span id="result-tax" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
                             </div>
                         </div>
@@ -374,6 +386,7 @@
                         <li><strong>EPF (KWSP):</strong> Employee 11% (below 60). Employer 13% for wages up to RM5,000, or 12% above RM5,000. Ages 60-75: employee 0%, employer 4%.</li>
                         <li><strong>SOCSO:</strong> 0.5% employee / 1.75% employer, calculated on wages up to a RM6,000 ceiling (effective since October 2024).</li>
                         <li><strong>EIS:</strong> 0.2% employee / 0.2% employer, same RM6,000 wage ceiling.</li>
+                        <li><strong>Lindung 24 Jam (SKBBK):</strong> New voluntary scheme effective 1 June 2026 covering non-work-related accidents 24/7. Employee-only, 0.75% of wage (phase 1 rate, capped at the RM6,000 ceiling). Made optional for local employees from 9 July 2026 -- off by default here since most employees are not automatically enrolled.</li>
                         <li><strong>Estimated Tax (PCB):</strong> Annualized salary, minus RM9,000 personal relief and up to RM4,000 EPF relief, taxed at LHDN's YA2025 progressive brackets, divided by 12. This is an estimate only -- actual PCB depends on marital status, dependents, and other reliefs.</li>
                         <li><strong>Disclaimer:</strong> This calculator is a guide for Malaysian citizen employees only and does not replace your payslip, employer's payroll system, or LHDN/KWSP/PERKESO's own calculators.</li>
                     </ul>
@@ -393,6 +406,10 @@
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Is the tax estimate here exact?</p>
                             <p>No -- it's a simplified estimate using standard reliefs only. For exact PCB, check your payslip or LHDN's official calculator.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What is LINDUNG 24 Jam (SKBBK)?</p>
+                            <p>A new PERKESO scheme effective 1 June 2026 covering non-work-related accidents around the clock. It's employee-only and voluntary for local employees (mandatory for foreign workers) -- so it's off by default here since most local employees aren't automatically enrolled.</p>
                         </div>
                     </div>
                 </div>
