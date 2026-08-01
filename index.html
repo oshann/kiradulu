@@ -327,6 +327,11 @@
                                 <option value="60plus">60 and above</option>
                             </select>
                         </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Annual Bonus (RM)</label>
+                            <input type="text" inputmode="decimal" id="bonus" value="0"
+                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                        </div>
                         <div class="flex items-start gap-2 pt-1">
                             <input type="checkbox" id="lindung24jam" class="mt-0.5 w-3.5 h-3.5 accent-blue-700 shrink-0">
                             <label for="lindung24jam" class="text-[10px] font-bold text-slate-500 dark:text-slate-400 leading-snug">
@@ -382,6 +387,19 @@
                         <span class="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest">Total EPF Contribution (Employee + Employer)</span>
                         <span id="result-total-epf" class="font-black text-blue-700 dark:text-blue-400 text-sm">RM0</span>
                     </div>
+                </div>
+
+                <div id="bonus-breakdown" class="hidden bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <h3 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 border-b dark:border-slate-700 pb-2">Bonus Breakdown</h3>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between"><span>Bonus Amount</span><span id="result-bonus-amount" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
+                        <div class="flex justify-between"><span>EPF (Employee) on Bonus</span><span id="result-bonus-epf" class="font-bold text-red-500 dark:text-red-300">-RM0</span></div>
+                        <div class="flex justify-between"><span>Estimated Tax on Bonus</span><span id="result-bonus-tax" class="font-bold text-red-500 dark:text-red-300">-RM0</span></div>
+                        <div class="flex justify-between border-t dark:border-slate-700 pt-2"><span class="font-bold">Net Bonus Received</span><span id="result-bonus-net" class="font-black text-green-600 dark:text-green-400">RM0</span></div>
+                    </div>
+                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                        Bonus is EPF-able but SOCSO/EIS-exempt under the Employees' Social Security Act 1969. Tax on bonus is the extra annual tax this bonus adds, estimated separately from your regular monthly PCB above.
+                    </p>
                 </div>
 
                 <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
