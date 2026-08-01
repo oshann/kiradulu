@@ -314,6 +314,18 @@
                             class="text-[9px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
+                        <div class="relative">
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Select Your Car (Optional)</label>
+                            <div class="relative mt-1">
+                                <input type="text" id="carSearchInput" autocomplete="off" placeholder="Search make or model, e.g. Myvi"
+                                    class="w-full p-2 border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 rounded text-xs text-slate-700 dark:text-slate-200">
+                                <button type="button" id="carSearchClear" onclick="clearCarSelection()" title="Clear selection"
+                                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-red-600 text-xs font-bold">&times;</button>
+                            </div>
+                            <div id="carSearchResults" class="hidden absolute z-40 mt-1 w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-xl max-h-56 overflow-y-auto text-xs"></div>
+                            <p class="text-[9px] text-slate-400 mt-1">Picks a ~50-model reference list of popular Malaysia cars and auto-fills the fields below. Can't find yours? Just enter the details manually.</p>
+                        </div>
+
                         <div>
                             <label class="text-[9px] font-bold text-slate-400 uppercase">Vehicle Type</label>
                             <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
@@ -456,6 +468,7 @@
         </div>
     </main>
 
+    <script src="car-database.js"></script>
     <script src="road-tax-calculator.js"></script>
 </body>
 

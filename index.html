@@ -205,7 +205,7 @@
             {
                 "@type": "Question",
                 "name": "What is LINDUNG 24 Jam (SKBBK)?",
-                "acceptedAnswer": { "@type": "Answer", "text": "A new PERKESO scheme effective 1 June 2026 covering non-work-related accidents around the clock. It's employee-only and voluntary for local employees (mandatory for foreign workers), so it's off by default in this calculator since most local employees aren't automatically enrolled." }
+                "acceptedAnswer": { "@type": "Answer", "text": "A PERKESO scheme covering non-work-related accidents around the clock, effective 1 June 2026. It's employee-only. Local employees can opt out by filing a liability-release declaration with PERKESO, but the scheme is opt-out (not opt-in) since 9 July 2026, so this calculator includes it by default. Foreign workers remain mandatory contributors." }
             }
         ]
     }
@@ -320,6 +320,12 @@
                                 class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Bonus (RM)</label>
+                            <input type="text" inputmode="decimal" id="bonus" value="0"
+                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <p class="text-[9px] text-slate-400 mt-1">Included in EPF & tax below; exempt from SOCSO/EIS.</p>
+                        </div>
+                        <div>
                             <label class="text-[9px] font-bold text-slate-400 uppercase">Age</label>
                             <select id="ageBand"
                                 class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
@@ -327,15 +333,10 @@
                                 <option value="60plus">60 and above</option>
                             </select>
                         </div>
-                        <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Annual Bonus (RM)</label>
-                            <input type="text" inputmode="decimal" id="bonus" value="0"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
-                        </div>
                         <div class="flex items-start gap-2 pt-1">
-                            <input type="checkbox" id="lindung24jam" class="mt-0.5 w-3.5 h-3.5 accent-blue-700 shrink-0">
+                            <input type="checkbox" id="lindung24jam" checked class="mt-0.5 w-3.5 h-3.5 accent-blue-700 shrink-0">
                             <label for="lindung24jam" class="text-[10px] font-bold text-slate-500 dark:text-slate-400 leading-snug">
-                                Opt in to LINDUNG 24 Jam (SKBBK) -- voluntary 24-hour accident protection, 0.75% of wage, employee-only. Off by default.
+                                LINDUNG 24 Jam (SKBBK) -- 24-hour accident protection, employee-only. Included by default since 9 July 2026 (opt-out, not opt-in); uncheck if you've filed a PERKESO opt-out declaration.
                             </label>
                         </div>
                     </div>
@@ -357,7 +358,7 @@
                     </div>
                     <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white col-span-2 md:col-span-1">
                         <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Net Take-Home Pay</p>
-                        <p id="result-net" class="text-3xl font-black break-words leading-tight">RM0</p>
+                        <p id="result-net" class="text-2xl font-black whitespace-nowrap leading-tight">RM0</p>
                     </div>
                 </div>
 
@@ -389,26 +390,13 @@
                     </div>
                 </div>
 
-                <div id="bonus-breakdown" class="hidden bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                    <h3 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 border-b dark:border-slate-700 pb-2">Bonus Breakdown</h3>
-                    <div class="space-y-2 text-xs">
-                        <div class="flex justify-between"><span>Bonus Amount</span><span id="result-bonus-amount" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
-                        <div class="flex justify-between"><span>EPF (Employee) on Bonus</span><span id="result-bonus-epf" class="font-bold text-red-500 dark:text-red-300">-RM0</span></div>
-                        <div class="flex justify-between"><span>Estimated Tax on Bonus</span><span id="result-bonus-tax" class="font-bold text-red-500 dark:text-red-300">-RM0</span></div>
-                        <div class="flex justify-between border-t dark:border-slate-700 pt-2"><span class="font-bold">Net Bonus Received</span><span id="result-bonus-net" class="font-black text-green-600 dark:text-green-400">RM0</span></div>
-                    </div>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
-                        Bonus is EPF-able but SOCSO/EIS-exempt under the Employees' Social Security Act 1969. Tax on bonus is the extra annual tax this bonus adds, estimated separately from your regular monthly PCB above.
-                    </p>
-                </div>
-
                 <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
                     <h4 class="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">How This Is Calculated (2025/2026 Rates)</h4>
                     <ul class="text-[10px] text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                         <li><strong>EPF (KWSP):</strong> Employee 11% (below 60). Employer 13% for wages up to RM5,000, or 12% above RM5,000. Ages 60-75: employee 0%, employer 4%.</li>
-                        <li><strong>SOCSO:</strong> 0.5% employee / 1.75% employer, calculated on wages up to a RM6,000 ceiling (effective since October 2024).</li>
-                        <li><strong>EIS:</strong> 0.2% employee / 0.2% employer, same RM6,000 wage ceiling.</li>
-                        <li><strong>Lindung 24 Jam (SKBBK):</strong> New voluntary scheme effective 1 June 2026 covering non-work-related accidents 24/7. Employee-only, 0.75% of wage (phase 1 rate, capped at the RM6,000 ceiling). Made optional for local employees from 9 July 2026 -- off by default here since most employees are not automatically enrolled.</li>
+                        <li><strong>SOCSO:</strong> PERKESO's official wage-banded contribution table (Act 4, First Category), roughly 0.5% employee / 1.75% employer, capped at a RM6,000 wage ceiling (effective since October 2024). Figures here are the exact table amounts, not a percentage approximation.</li>
+                        <li><strong>EIS:</strong> PERKESO's official wage-banded table (Act 800), roughly 0.2% employee / 0.2% employer, same RM6,000 ceiling.</li>
+                        <li><strong>Lindung 24 Jam (SKBBK):</strong> PERKESO scheme covering non-work-related accidents 24/7, effective 1 June 2026. Employee-only. Launched mandatory, then made opt-out (not opt-in) for local employees from 9 July 2026 -- employees are enrolled and contributing by default, so this calculator includes it unless unchecked. Uncheck if you've filed a PERKESO opt-out declaration. Mandatory for foreign workers.</li>
                         <li><strong>Estimated Tax (PCB):</strong> Annualized salary, minus RM9,000 personal relief and up to RM4,000 EPF relief, taxed at LHDN's YA2025 progressive brackets, divided by 12. This is an estimate only -- actual PCB depends on marital status, dependents, and other reliefs.</li>
                         <li><strong>Disclaimer:</strong> This calculator is a guide for Malaysian citizen employees only and does not replace your payslip, employer's payroll system, or LHDN/KWSP/PERKESO's own calculators.</li>
                     </ul>
@@ -431,7 +419,7 @@
                         </div>
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What is LINDUNG 24 Jam (SKBBK)?</p>
-                            <p>A new PERKESO scheme effective 1 June 2026 covering non-work-related accidents around the clock. It's employee-only and voluntary for local employees (mandatory for foreign workers) -- so it's off by default here since most local employees aren't automatically enrolled.</p>
+                            <p>A PERKESO scheme covering non-work-related accidents around the clock, effective 1 June 2026. It's employee-only and opt-out (not opt-in) for local employees since 9 July 2026 -- so employees are enrolled and contributing by default, which is how this calculator treats it unless you uncheck it. Mandatory for foreign workers.</p>
                         </div>
                     </div>
                 </div>
