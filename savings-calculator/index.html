@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Free Malaysia road tax (cukai jalan) calculator. Works out your annual JPJ road tax by engine capacity (cc) or EV motor power (kW), for saloon and non-saloon vehicles in Peninsular Malaysia or Sabah/Sarawak.">
+        content="Free Malaysia savings & compound interest calculator. See how your initial investment and monthly contributions grow over time -- for fixed deposits, ASB, unit trusts, or any savings goal.">
     <meta name="keywords"
-        content="Road Tax Calculator Malaysia, Cukai Jalan Calculator, JPJ Road Tax, Road Tax Rate Malaysia, EV Road Tax Malaysia, Road Tax Sabah Sarawak">
+        content="Savings Calculator Malaysia, Compound Interest Calculator, Investment Growth Calculator, ASB Calculator, Fixed Deposit Calculator Malaysia">
     <meta name="author" content="KiraDulu">
-    <link rel="canonical" href="https://kiradulu.app/road-tax-calculator/">
+    <link rel="canonical" href="https://kiradulu.app/savings-calculator/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="KiraDulu">
-    <meta property="og:title" content="Road Tax Calculator Malaysia | JPJ Cukai Jalan Rates (2026)">
-    <meta property="og:description" content="Free Malaysia road tax (cukai jalan) calculator. Works out your annual JPJ road tax by engine capacity (cc) or EV motor power (kW), for saloon and non-saloon vehicles in Peninsular Malaysia or Sabah/Sarawak.">
-    <meta property="og:url" content="https://kiradulu.app/road-tax-calculator/">
+    <meta property="og:title" content="Savings & Compound Interest Calculator Malaysia">
+    <meta property="og:description" content="Free Malaysia savings & compound interest calculator. See how your initial investment and monthly contributions grow over time -- for fixed deposits, ASB, unit trusts, or any savings goal.">
+    <meta property="og:url" content="https://kiradulu.app/savings-calculator/">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Road Tax Calculator Malaysia | JPJ Cukai Jalan Rates (2026)">
-    <meta name="twitter:description" content="Free Malaysia road tax (cukai jalan) calculator. Works out your annual JPJ road tax by engine capacity (cc) or EV motor power (kW), for saloon and non-saloon vehicles in Peninsular Malaysia or Sabah/Sarawak.">
+    <meta name="twitter:title" content="Savings & Compound Interest Calculator Malaysia">
+    <meta name="twitter:description" content="Free Malaysia savings & compound interest calculator. See how your initial investment and monthly contributions grow over time -- for fixed deposits, ASB, unit trusts, or any savings goal.">
 
-    <title>Road Tax Calculator Malaysia | JPJ Cukai Jalan Rates (2026)</title>
+    <title>Savings & Compound Interest Calculator Malaysia | Free Projection Tool</title>
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="apple-touch-icon" href="../favicon.png">
 
@@ -33,6 +33,7 @@
     <script>
         tailwind.config = { darkMode: 'class' };
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -174,11 +175,11 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Malaysia Road Tax (Cukai Jalan) Calculator",
-        "url": "https://kiradulu.app/road-tax-calculator/",
+        "name": "Malaysia Savings & Compound Interest Calculator",
+        "url": "https://kiradulu.app/savings-calculator/",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
-        "description": "Free calculator for Malaysia's JPJ road tax (cukai jalan) by engine capacity (cc) or EV motor power (kW), covering saloon and non-saloon vehicles in Peninsular Malaysia or Sabah/Sarawak.",
+        "description": "Free calculator to project how an initial investment plus monthly contributions grow over time with compound interest, for any Malaysian savings goal.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MYR" }
     }
     </script>
@@ -189,23 +190,28 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "How is Malaysia road tax calculated for petrol/diesel cars?",
-                "acceptedAnswer": { "@type": "Answer", "text": "JPJ charges a flat fee for engines up to 1,600cc, then a base rate plus a per-cc surcharge for every cc above each bracket's floor, up to 3,000cc and above. Saloon (sedan/hatchback) and non-saloon (SUV/MPV) vehicles use different rate tables." }
+                "name": "How is compound interest calculated in this tool?",
+                "acceptedAnswer": { "@type": "Answer", "text": "This calculator simulates your balance month by month: your monthly contribution is added, and interest is applied either every month or once a year, depending on the compounding frequency you choose. This lets your interest itself start earning interest over time, rather than growing on a flat, uncompounded basis." }
             },
             {
                 "@type": "Question",
-                "name": "Is EV road tax cheaper than petrol car road tax?",
-                "acceptedAnswer": { "@type": "Answer", "text": "For most mainstream EVs, yes. From 1 January 2026, EV road tax is based on the electric motor's power output in kW rather than engine cc, using a base-plus-incremental structure across power bands, and there is no saloon/non-saloon distinction for EVs." }
+                "name": "What interest rate should I use?",
+                "acceptedAnswer": { "@type": "Answer", "text": "It depends on where you're saving. As a rough Malaysian guide: Fixed Deposits are typically around 2.5%-3.5%, ASB has historically paid around 4%-5.5% (not guaranteed), EPF dividends have averaged around 5%-6%, and unit trusts or equities have historically averaged 6%-8% over the long run with more risk and volatility. These are illustrative reference points, not forecasts." }
             },
             {
                 "@type": "Question",
-                "name": "Why is road tax cheaper in Sabah and Sarawak?",
-                "acceptedAnswer": { "@type": "Answer", "text": "JPJ sets lower road tax rates for East Malaysia to reflect the region's road conditions and higher reliance on larger, four-wheel-drive vehicles. This calculator applies an approximate discount to the Peninsular Malaysia formula -- check MyJPJ for your exact East Malaysia figure." }
+                "name": "What's the difference between monthly and annual compounding?",
+                "acceptedAnswer": { "@type": "Answer", "text": "With monthly compounding, interest is calculated and added to your balance every month, so it compounds faster. With annual compounding, interest is credited once a year on the balance you started that year with, and that year's contributions only start earning interest from the following year. Monthly compounding is more realistic for most savings and fixed deposit accounts." }
             },
             {
                 "@type": "Question",
-                "name": "Does a company-registered car pay more road tax?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes, for saloon cars. Company-registered saloons pay roughly double the personal-registration rate up to 2,500cc, and an even higher multiple above that. Non-saloon vehicles (SUV/MPV/pickup) pay the same rate regardless of registration type." }
+                "name": "Is this the same as the EPF Calculator?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. The EPF Calculator models your mandatory EPF/KWSP retirement contributions specifically, based on your salary and statutory contribution rates. This Savings Calculator is for any other savings goal with a rate and contribution amount you choose yourself -- fixed deposits, ASB, unit trusts, an emergency fund, or general investing." }
+            },
+            {
+                "@type": "Question",
+                "name": "What does Real Value (Today's Money) mean?",
+                "acceptedAnswer": { "@type": "Answer", "text": "It's your projected future balance discounted back by an assumed inflation rate, showing what that amount would actually be worth in today's purchasing power rather than its raw future RM figure. A large future balance can still represent modest real growth once inflation is accounted for, since inflation reduces purchasing power every year alongside your savings' growth." }
             }
         ]
     }
@@ -272,7 +278,7 @@
                             <a href="../salary-calculator/index.html" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Salary Calculator</a>
                             <a href="../epf-calculator/index.html" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">EPF Calculator</a>
                             <a href="../income-tax-calculator/index.html" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Income Tax Calculator</a>
-                            <a href="../savings-calculator/index.html" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Savings Calculator</a>
+                            <span class="block px-4 py-2 text-xs font-bold text-blue-700 dark:text-blue-400">Savings Calculator</span>
                         </div>
                     </div>
                 </div>
@@ -288,7 +294,7 @@
                     <div class="absolute right-0 md:left-0 top-full pt-2 hidden group-hover:block z-50">
                         <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
                             <a href="../hire-purchase-calculator/index.html" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Hire Purchase Calculator</a>
-                            <span class="block px-4 py-2 text-xs font-bold text-blue-700 dark:text-blue-400">Road Tax Calculator</span>
+                            <a href="../road-tax-calculator/index.html" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Road Tax Calculator</a>
                             <a href="../car-tco-calculator/index.html" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Total Cost of Ownership</a>
                         </div>
                     </div>
@@ -303,131 +309,116 @@
     </header>
 
     <main class="max-w-5xl mx-auto px-4 pb-10">
-        <h2 class="text-xl font-black text-blue-900 dark:text-blue-300 mb-1">Road Tax Calculator (Cukai Jalan)</h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Work out your annual JPJ road tax by engine capacity or EV motor power.</p>
+        <h2 class="text-xl font-black text-blue-900 dark:text-blue-300 mb-1">Savings & Compound Interest Calculator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">See how your initial investment and monthly contributions grow over time -- for fixed deposits, ASB, unit trusts, or any savings goal.</p>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div class="lg:col-span-4 space-y-4">
                 <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow border border-slate-200 dark:border-slate-700">
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
-                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Vehicle Details</h3>
+                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Your Savings Plan</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
                             class="text-[9px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
-                        <div class="relative">
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Select Your Car (Optional)</label>
-                            <div class="relative mt-1">
-                                <input type="text" id="carSearchInput" autocomplete="off" placeholder="Search make or model, e.g. Myvi"
-                                    class="w-full p-2 border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 rounded text-xs text-slate-700 dark:text-slate-200">
-                                <button type="button" id="carSearchClear" onclick="clearCarSelection()" title="Clear selection"
-                                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-red-600 text-xs font-bold">&times;</button>
-                            </div>
-                            <div id="carSearchResults" class="hidden absolute z-40 mt-1 w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-xl max-h-56 overflow-y-auto text-xs"></div>
-                            <p class="text-[9px] text-slate-400 mt-1">Picks a ~50-model reference list of popular Malaysia cars and auto-fills the fields below. Can't find yours? Just enter the details manually.</p>
-                        </div>
-
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Vehicle Type</label>
-                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
-                                <button type="button" id="fuel-mode-petrol" onclick="setFuelMode('petrol')" class="flex-1 py-2 transition">Petrol/Diesel</button>
-                                <button type="button" id="fuel-mode-ev" onclick="setFuelMode('ev')" class="flex-1 py-2 transition">Electric (EV)</button>
-                            </div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Initial Investment (RM)</label>
+                            <input type="text" inputmode="decimal" id="initialInvestment" value="10,000"
+                                class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
                         </div>
-
-                        <div id="petrol-fields">
-                            <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Engine Capacity (cc)</label>
-                                <input type="number" id="engineCc" value="1600" step="10"
-                                    class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
-                            </div>
-                            <div class="mt-3">
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Body Type</label>
-                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
-                                    <button type="button" id="body-mode-saloon" onclick="setBodyMode('saloon')" class="flex-1 py-2 transition">Saloon</button>
-                                    <button type="button" id="body-mode-nonsaloon" onclick="setBodyMode('nonsaloon')" class="flex-1 py-2 transition">Non-Saloon</button>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Registration</label>
-                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
-                                    <button type="button" id="reg-mode-personal" onclick="setRegistrationMode('personal')" class="flex-1 py-2 transition">Personal</button>
-                                    <button type="button" id="reg-mode-business" onclick="setRegistrationMode('business')" class="flex-1 py-2 transition">Business</button>
-                                </div>
-                                <p class="text-[9px] text-slate-400 mt-1">Business-registered saloons pay a higher rate. No difference for non-saloon.</p>
-                            </div>
-                        </div>
-
-                        <div id="ev-fields" class="hidden">
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Motor Power Output (kW)</label>
-                            <input type="number" id="motorKw" value="150" step="5"
-                                class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
-                            <p class="text-[9px] text-slate-400 mt-1">Use combined output for dual-motor / AWD EVs.</p>
-                        </div>
-
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Region</label>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Monthly Contribution (RM)</label>
+                            <input type="text" inputmode="decimal" id="monthlyContribution" value="500"
+                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <p class="text-[9px] text-slate-400 mt-1">Use a negative number if you plan to withdraw monthly instead.</p>
+                        </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Length of Time (Years)</label>
+                            <input type="number" id="years" value="20" min="0" step="1"
+                                class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                        </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Estimated Annual Interest Rate (%)</label>
+                            <input type="number" id="interestRate" value="3" step="0.1"
+                                class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <p class="text-[9px] text-slate-400 mt-1">Rough guide: Fixed Deposit ~2.5-3.5% &middot; ASB ~4-5.5% &middot; EPF dividend ~5-6% &middot; unit trust/equity ~6-8% historical. Not guaranteed.</p>
+                        </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Assumed Inflation Rate (%)</label>
+                            <input type="number" id="inflationRate" value="3" step="0.1"
+                                class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <p class="text-[9px] text-slate-400 mt-1">Malaysia's CPI has historically averaged roughly 2-3% a year long-run. Used to show what your future balance is worth in today's money.</p>
+                        </div>
+                        <div>
+                            <label class="text-[9px] font-bold text-slate-400 uppercase">Compounding Frequency</label>
                             <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
-                                <button type="button" id="region-mode-peninsular" onclick="setRegionMode('peninsular')" class="flex-1 py-2 transition">Peninsular</button>
-                                <button type="button" id="region-mode-east" onclick="setRegionMode('east')" class="flex-1 py-2 transition">Sabah/Sarawak</button>
+                                <button type="button" id="compound-mode-monthly" onclick="setCompoundMode('monthly')" class="flex-1 py-2 transition">Monthly</button>
+                                <button type="button" id="compound-mode-annually" onclick="setCompoundMode('annually')" class="flex-1 py-2 transition">Annually</button>
                             </div>
                         </div>
                     </div>
                     <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
-                        Rates follow JPJ's published cc-based schedule (petrol/diesel) or the 2026 kW-based EV schedule. Sabah/Sarawak figures are approximated -- check MyJPJ for your exact renewal amount.
+                        This is a planning guide only -- actual returns depend on the specific product you choose and are never guaranteed.
                     </p>
                 </div>
             </div>
 
             <div class="lg:col-span-8 space-y-4">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white">
-                        <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Annual Road Tax</p>
-                        <p id="result-annual" class="text-2xl font-black break-words leading-tight">RM0</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white col-span-2 md:col-span-1">
+                        <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest mb-2">Future Value</p>
+                        <p id="result-future" class="text-2xl font-black whitespace-nowrap leading-tight">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Monthly Equivalent</p>
-                        <p id="result-monthly" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Contributions</p>
+                        <p id="result-contributions" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
+                    </div>
+                    <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Interest Earned</p>
+                        <p id="result-interest" class="text-2xl font-black text-green-600 dark:text-green-400">RM0</p>
+                    </div>
+                    <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center col-span-2 md:col-span-1">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Real Value (Today's Money)</p>
+                        <p id="result-real" class="text-2xl font-black whitespace-nowrap leading-tight" style="color: #C9A227;">RM0</p>
                     </div>
                 </div>
 
-                <div id="result-breakdown" class="bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 rounded-xl p-4 text-[11px] text-blue-800 dark:text-blue-300 leading-relaxed"></div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow border border-slate-200 dark:border-slate-700 h-80 relative">
+                    <canvas id="trendChart"></canvas>
+                </div>
 
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
-                    <div class="overflow-x-auto">
+                    <button type="button" onclick="toggleTable()" id="toggle-table-btn"
+                        class="w-full flex items-center justify-between px-4 py-3 text-[11px] font-black uppercase tracking-widest text-blue-700 dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                        <span>Show Year-by-Year Table</span>
+                        <span id="toggle-table-icon">&#9662;</span>
+                    </button>
+                    <div id="table-wrapper" class="hidden overflow-x-auto">
                         <table class="w-full text-center min-w-[600px]">
                             <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[9px] font-black text-slate-400 uppercase">
                                 <tr>
-                                    <th class="p-3 text-left">Engine Capacity</th>
-                                    <th class="p-3">Personal Saloon</th>
-                                    <th class="p-3">Business Saloon</th>
-                                    <th class="p-3">Non-Saloon</th>
+                                    <th class="p-4">Year</th>
+                                    <th class="p-4">Balance</th>
+                                    <th class="p-4">Total Contributed</th>
+                                    <th class="p-4">Interest Earned So Far</th>
+                                    <th class="p-4">Real Value (Today's Money)</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-[11px] divide-y divide-slate-100 dark:divide-slate-700">
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,000cc and below</td><td class="p-3">RM20</td><td class="p-3">RM20</td><td class="p-3">RM20</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,001&ndash;1,200cc</td><td class="p-3">RM55</td><td class="p-3">RM110</td><td class="p-3">RM85</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,201&ndash;1,400cc</td><td class="p-3">RM70</td><td class="p-3">RM140</td><td class="p-3">RM100</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,401&ndash;1,600cc</td><td class="p-3">RM90</td><td class="p-3">RM180</td><td class="p-3">RM120</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,601&ndash;1,800cc</td><td class="p-3">RM200 + RM0.40/cc</td><td class="p-3">RM400 + RM0.80/cc</td><td class="p-3">RM300 + RM0.30/cc</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,801&ndash;2,000cc</td><td class="p-3">RM280 + RM0.50/cc</td><td class="p-3">RM560 + RM1.00/cc</td><td class="p-3">RM360 + RM0.40/cc</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">2,001&ndash;2,500cc</td><td class="p-3">RM380 + RM1.00/cc</td><td class="p-3">RM760 + RM3.00/cc</td><td class="p-3">RM440 + RM0.80/cc</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">2,501&ndash;3,000cc</td><td class="p-3">RM880 + RM2.50/cc</td><td class="p-3">RM2,260 + RM7.50/cc</td><td class="p-3">RM840 + RM1.60/cc</td></tr>
-                                <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">3,001cc and above</td><td class="p-3">RM2,130 + RM4.50/cc</td><td class="p-3">RM6,010 + RM13.50/cc</td><td class="p-3">RM1,640 + RM1.60/cc</td></tr>
-                            </tbody>
+                            <tbody id="projection-table" class="text-[10px] divide-y divide-slate-100 dark:divide-slate-700"></tbody>
                         </table>
                     </div>
-                    <p class="text-[9px] text-slate-400 p-3 border-t border-slate-100 dark:border-slate-700">"+ RM x/cc" applies to every cc above that bracket's floor (e.g. above 1,600cc, above 1,800cc, and so on).</p>
                 </div>
 
                 <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
                     <h4 class="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">How This Is Calculated</h4>
                     <ul class="text-[10px] text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
-                        <li><strong>Petrol/diesel:</strong> a flat fee applies up to 1,600cc, then a base rate plus a per-cc surcharge for every cc above each bracket's floor. Saloon (sedan/hatchback/coupe) and non-saloon (SUV/MPV/pickup) use different tables -- non-saloons pay slightly more at small engine sizes but noticeably less at large engine sizes.</li>
-                        <li><strong>Business registration:</strong> company-registered saloon cars pay roughly double the personal-registration rate up to 2,500cc, rising to about 2.6&ndash;2.8&times; above that. Non-saloon vehicles pay the same rate regardless of registration type.</li>
-                        <li><strong>Electric vehicles (EV):</strong> from 1 January 2026, JPJ taxes EVs by motor power output (kW) instead of engine cc, across power bands with no saloon/non-saloon distinction. Figures here are interpolated from the published band boundaries and are approximate -- confirm your exact figure via MyJPJ.</li>
-                        <li><strong>Sabah/Sarawak:</strong> East Malaysia rates are lower than Peninsular Malaysia. This calculator applies an approximate discount to the Peninsular formula; the official East Malaysia schedule may differ bracket by bracket.</li>
-                        <li><strong>Disclaimer:</strong> this calculator is a planning guide only and does not replace your official JPJ / MyJPJ renewal notice.</li>
+                        <li><strong>Monthly compounding:</strong> each month, your contribution is added and interest is calculated on the running balance -- interest compounds every month.</li>
+                        <li><strong>Annual compounding:</strong> the balance you start the year with earns the full annual interest rate; that year's monthly contributions are then added and start compounding from the following year onward.</li>
+                        <li><strong>Withdrawals:</strong> enter a negative Monthly Contribution to model regular withdrawals instead of deposits.</li>
+                        <li><strong>Interest rate benchmarks:</strong> Fixed Deposit ~2.5-3.5%, ASB ~4-5.5% (historical), EPF dividend ~5-6%, unit trust/equity ~6-8% (historical average) -- all illustrative, not guaranteed or forecast.</li>
+                        <li><strong>Real Value (Today's Money):</strong> your projected future balance, discounted back by the assumed inflation rate compounded annually over the full period, so it reflects what that amount would actually buy in today's purchasing power. This is why a big future number can still represent a smaller real gain than it looks -- inflation quietly erodes it every year alongside the growth.</li>
+                        <li><strong>Not the EPF Calculator:</strong> for your mandatory EPF/KWSP contributions specifically, use the <a href="../epf-calculator/index.html" class="text-blue-700 dark:text-blue-400 hover:underline font-bold">EPF Calculator</a> instead -- this tool is for any other savings goal.</li>
+                        <li><strong>Disclaimer:</strong> this calculator is a planning guide only, not investment advice, and does not guarantee any rate of return.</li>
                     </ul>
                 </div>
 
@@ -435,20 +426,24 @@
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
                     <div class="space-y-4 text-xs text-slate-600 dark:text-slate-400">
                         <div>
-                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">How is Malaysia road tax calculated for petrol/diesel cars?</p>
-                            <p>A flat fee applies up to 1,600cc, then a base rate plus a per-cc surcharge above each bracket's floor, up to 3,000cc and beyond. Saloon and non-saloon vehicles use different tables.</p>
+                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">How is compound interest calculated in this tool?</p>
+                            <p>Your balance is simulated month by month: contributions are added, and interest is applied either every month or once a year depending on the compounding frequency you choose.</p>
                         </div>
                         <div>
-                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Is EV road tax cheaper than petrol car road tax?</p>
-                            <p>For most mainstream EVs, yes -- road tax is based on motor power (kW) instead of engine cc from 1 January 2026, with no saloon/non-saloon distinction.</p>
+                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What interest rate should I use?</p>
+                            <p>A rough guide: Fixed Deposit ~2.5-3.5%, ASB ~4-5.5% (historical), EPF dividend ~5-6%, unit trust/equity ~6-8% historical average. These are reference points, not forecasts.</p>
                         </div>
                         <div>
-                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Why is road tax cheaper in Sabah and Sarawak?</p>
-                            <p>JPJ sets lower rates for East Malaysia given road conditions and reliance on larger 4WD vehicles. This calculator applies an approximate discount -- check MyJPJ for your exact figure.</p>
+                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What's the difference between monthly and annual compounding?</p>
+                            <p>Monthly compounding credits interest every month, so it compounds faster. Annual compounding credits interest once a year on the balance you started that year with; that year's contributions start compounding the following year.</p>
                         </div>
                         <div>
-                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Does a company-registered car pay more road tax?</p>
-                            <p>Yes, for saloon cars -- roughly double the personal rate up to 2,500cc, rising higher above that. Non-saloon vehicles pay the same rate regardless of registration type.</p>
+                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Is this the same as the EPF Calculator?</p>
+                            <p>No -- the EPF Calculator models your mandatory EPF/KWSP contributions specifically. This tool is for any other savings goal with a rate and contribution you choose yourself.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What does Real Value (Today's Money) mean?</p>
+                            <p>Your projected future balance discounted back by an assumed inflation rate, showing what it's actually worth in today's purchasing power rather than its raw future RM figure.</p>
                         </div>
                     </div>
                 </div>
@@ -463,15 +458,14 @@
                 <a href="../salary-calculator/index.html" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
                 <a href="../epf-calculator/index.html" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Retirement Calculator</a>
                 <a href="../income-tax-calculator/index.html" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                <a href="../savings-calculator/index.html" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
                 <a href="../hire-purchase-calculator/index.html" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
+                <a href="../road-tax-calculator/index.html" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
                 <a href="../car-tco-calculator/index.html" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Total Cost of Ownership</a>
             </div>
         </div>
     </main>
 
-    <script src="car-database.js"></script>
-    <script src="road-tax-calculator.js"></script>
+    <script src="savings-calculator.js"></script>
 </body>
 
 </html>
