@@ -24,6 +24,12 @@
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="apple-touch-icon" href="../favicon.png">
 
+    <!-- GitHub Pages can't redirect server-side, so collapse /index.html duplicates onto the canonical URL -->
+    <script>
+        if (location.pathname.endsWith('/index.html')) {
+            location.replace(location.pathname.slice(0, -'index.html'.length) + location.search + location.hash);
+        }
+    </script>
     <script>
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
@@ -206,13 +212,18 @@
     }
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDTKDBVZQB"></script>
+    <!-- Google tag (gtag.js) -- only on the live domain, so local testing isn't counted as traffic -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-EDTKDBVZQB');
+        if (location.hostname === 'kiradulu.app') {
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-EDTKDBVZQB';
+            document.head.appendChild(gaScript);
+            gtag('js', new Date());
+            gtag('config', 'G-EDTKDBVZQB');
+        }
     </script>
 </head>
 
