@@ -37,6 +37,7 @@
     </script>
     <link rel="stylesheet" href="../assets/tailwind.css">
     <link rel="stylesheet" href="../assets/site.css">
+    <script src="../assets/site.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="application/ld+json">
@@ -64,7 +65,7 @@
             {
                 "@type": "Question",
                 "name": "Why does the monthly true cost differ from just the loan installment?",
-                "acceptedAnswer": { "@type": "Answer", "text": "The loan installment is only one slice of running a car. Road tax, insurance, fuel and maintenance are recurring costs on top of it, while depreciation reduces what you'll get back when you sell -- all of which the monthly loan figure alone hides." }
+                "acceptedAnswer": { "@type": "Answer", "text": "The loan installment is only one slice of running a car. Road tax, insurance, fuel and maintenance are recurring costs on top of it, while depreciation reduces what you'll get back when you sell &mdash; all of which the monthly loan figure alone hides." }
             },
             {
                 "@type": "Question",
@@ -90,90 +91,119 @@
     </script>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body data-kd-share="kiradulu_car_tco_inputs" class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-    <header class="blue-gradient text-white py-6 px-4 shadow-lg mb-4" style="background: linear-gradient(135deg, #17392A 0%, #2E6E52 100%);">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-3">
-            <div>
-                <a href="../"><h1 class="text-2xl font-black tracking-tighter italic leading-none">KiraDulu</h1></a>
-                <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-blue-200 mt-1 opacity-80">Kira Dulu, Baru Decide</p>
-            </div>
-            <nav class="flex flex-wrap justify-center gap-4 items-center">
-                <button onclick="toggleDarkMode()" id="dark-toggle-btn"
-                    class="text-blue-100 hover:text-white transition p-1.5 rounded-lg hover:bg-white/10" title="Toggle dark mode">
-                    <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- site-header: identical on every page (current page highlighted) -- update all pages together -->
+    <header class="kd-header text-white shadow-lg mb-6">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+            <a href="../" class="leading-none shrink-0" aria-label="KiraDulu home">
+                <span class="block text-2xl font-black tracking-tighter italic">KiraDulu</span>
+                <span class="block text-[11px] uppercase tracking-[0.2em] font-bold text-blue-200 mt-1 opacity-80">Kira Dulu, Baru Decide</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6" aria-label="Calculators">
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">
+                        Property <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../property-roi-calculator/#simple" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Property ROI Calculator</a>
+                            <a href="../property-roi-calculator/#projection" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">30-Year Projection</a>
+                            <a href="../property-roi-calculator/#compare" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Compare Properties</a>
+                            <a href="../tenant-rental-quote-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Tenant Rental Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">
+                        Personal Finance <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Salary Calculator</a>
+                            <a href="../epf-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">EPF Calculator</a>
+                            <a href="../income-tax-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Income Tax Calculator</a>
+                            <a href="../savings-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Savings Calculator</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-white kd-nav-active transition">
+                        Car <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../hire-purchase-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Hire Purchase Calculator</a>
+                            <a href="../road-tax-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Road Tax Calculator</a>
+                            <a href="../car-tco-calculator/" class="block px-4 py-2 text-sm font-bold text-blue-700 dark:text-blue-400 bg-slate-50 dark:bg-slate-700" aria-current="page">Car Cost of Ownership</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../about/" class="py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">About</a>
+                <a href="../about/#contact" class="py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">Contact</a>
+            </nav>
+            <div class="flex items-center gap-1">
+                <button onclick="toggleDarkMode()" id="dark-toggle-btn" type="button"
+                    class="text-blue-100 hover:text-white transition p-2 rounded-lg hover:bg-white/10" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
                 </button>
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Property ROI
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../property-roi-calculator/#simple" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Simple</a>
-                            <a href="../property-roi-calculator/#projection" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">30-Year Projection</a>
-                            <a href="../property-roi-calculator/#compare" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Compare</a>
-                            <a href="../tenant-rental-quote-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Tenant Rental Quote</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Personal Finance
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute right-0 md:left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Salary Calculator</a>
-                            <a href="../epf-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">EPF Calculator</a>
-                            <a href="../income-tax-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Income Tax Calculator</a>
-                            <a href="../savings-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Savings Calculator</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Car Finance
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute right-0 md:left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../hire-purchase-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Hire Purchase Calculator</a>
-                            <a href="../road-tax-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Road Tax Calculator</a>
-                            <span class="block px-4 py-2 text-xs font-bold text-blue-700 dark:text-blue-400">Total Cost of Ownership</span>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="../property-roi-calculator/#about"
-                    class="text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition pb-1">About</a>
-                <a href="../property-roi-calculator/#contact"
-                    class="text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition pb-1">Contact</a>
-            </nav>
+                <button id="kd-menu-btn" type="button" aria-expanded="false" aria-controls="kd-mobile-menu" aria-label="Menu"
+                    class="md:hidden text-blue-100 hover:text-white transition p-2 rounded-lg hover:bg-white/10">
+                    <svg id="kd-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <svg id="kd-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
         </div>
+        <nav id="kd-mobile-menu" class="md:hidden hidden border-t border-white/10 px-4 pb-4" aria-label="Calculators">
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Property</p>
+                <a href="../property-roi-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Property ROI Calculator</a>
+                <a href="../property-roi-calculator/#projection" class="block py-2 pl-7 pr-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">30-Year Projection</a>
+                <a href="../property-roi-calculator/#compare" class="block py-2 pl-7 pr-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Compare Properties</a>
+                <a href="../tenant-rental-quote-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Tenant Rental Quote</a>
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Personal Finance</p>
+                <a href="../" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Salary Calculator</a>
+                <a href="../epf-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">EPF Calculator</a>
+                <a href="../income-tax-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Income Tax Calculator</a>
+                <a href="../savings-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Savings Calculator</a>
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Car</p>
+                <a href="../hire-purchase-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Hire Purchase Calculator</a>
+                <a href="../road-tax-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Road Tax Calculator</a>
+                <a href="../car-tco-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm font-bold text-white bg-white/10" aria-current="page">Car Cost of Ownership</a>
+            <div class="mt-4 pt-3 border-t border-white/10 flex gap-6">
+                <a href="../about/" class="py-2 text-sm text-blue-100">About</a>
+                <a href="../about/#contact" class="py-2 text-sm text-blue-100">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <main class="max-w-5xl mx-auto px-4 pb-10">
-        <h2 class="text-xl font-black text-blue-900 dark:text-blue-300 mb-1">Car Total Cost of Ownership Calculator</h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Combine loan, road tax, insurance, fuel, maintenance and depreciation into one true monthly cost.</p>
+        <h1 class="text-xl md:text-2xl font-black text-blue-900 dark:text-blue-300 mb-1">Car Total Cost of Ownership Calculator</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Combine loan, road tax, insurance, fuel, maintenance and depreciation into one true monthly cost.</p>
+        <!-- Mobile summary bar: headline results stay in view while editing inputs (mirrored by assets/site.js) -->
+        <div class="kd-sticky lg:hidden sticky top-0 z-30 -mx-4 px-4 py-2 mb-4 bg-blue-900 text-white shadow-md flex justify-around items-center gap-2" aria-hidden="true">
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">True cost /mth</p>
+                <p data-kd-mirror="result-monthly-true-cost" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Total outflow</p>
+                <p data-kd-mirror="result-total-outflow" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Resale value</p>
+                <p data-kd-mirror="result-resale-value" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div class="lg:col-span-4 space-y-4">
@@ -181,42 +211,42 @@
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
                         <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Car &amp; Loan</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
-                            class="text-[9px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
+                            class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Car Price (RM)</label>
+                            <label for="carPrice" class="text-[11px] font-bold text-slate-400 uppercase">Car Price (RM)</label>
                             <input type="text" inputmode="decimal" id="carPrice" value="100,000"
                                 class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Down Payment (%)</label>
+                                <label for="downPaymentPct" class="text-[11px] font-bold text-slate-400 uppercase">Down Payment (%)</label>
                                 <input type="number" id="downPaymentPct" value="10" step="1"
                                     class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Loan Tenure (Yrs)</label>
+                                <label for="loanTenure" class="text-[11px] font-bold text-slate-400 uppercase">Loan Tenure (Yrs)</label>
                                 <input type="number" id="loanTenure" value="7" min="1" max="9"
                                     class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Flat Rate (% p.a.)</label>
+                                <label for="flatRate" class="text-[11px] font-bold text-slate-400 uppercase">Flat Rate (% p.a.)</label>
                                 <input type="number" id="flatRate" value="2.75" step="0.05"
                                     class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Ownership (Yrs)</label>
+                                <label for="ownershipYears" class="text-[11px] font-bold text-slate-400 uppercase">Ownership (Yrs)</label>
                                 <input type="number" id="ownershipYears" value="7" min="1" max="20"
                                     class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                         </div>
 
                         <div class="pt-2 border-t border-slate-100 dark:border-slate-700">
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Vehicle Type</label>
-                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
+                            <label for="engineCc" class="text-[11px] font-bold text-slate-400 uppercase">Vehicle Type</label>
+                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
                                 <button type="button" id="fuel-mode-petrol" onclick="setFuelMode('petrol')" class="flex-1 py-2 transition">Petrol/Diesel</button>
                                 <button type="button" id="fuel-mode-ev" onclick="setFuelMode('ev')" class="flex-1 py-2 transition">Electric (EV)</button>
                             </div>
@@ -225,12 +255,12 @@
                         <div id="petrol-fields">
                             <div class="grid grid-cols-2 gap-2">
                                 <div>
-                                    <label class="text-[9px] font-bold text-slate-400 uppercase">Engine (cc)</label>
+                                    <label class="text-[11px] font-bold text-slate-400 uppercase">Engine (cc)</label>
                                     <input type="number" id="engineCc" value="1600" step="10"
                                         class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                                 </div>
                                 <div>
-                                    <label class="text-[9px] font-bold text-slate-400 uppercase">Body Type</label>
+                                    <label for="bodyMode" class="text-[11px] font-bold text-slate-400 uppercase">Body Type</label>
                                     <select id="bodyMode" class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                                         <option value="saloon" selected>Saloon</option>
                                         <option value="nonsaloon">Non-Saloon</option>
@@ -239,29 +269,29 @@
                             </div>
                         </div>
                         <div id="ev-fields" class="hidden">
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Motor Power (kW)</label>
+                            <label for="motorKw" class="text-[11px] font-bold text-slate-400 uppercase">Motor Power (kW)</label>
                             <input type="number" id="motorKw" value="150" step="5"
                                 class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                         </div>
 
                         <div class="pt-2 border-t border-slate-100 dark:border-slate-700 grid grid-cols-2 gap-2">
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Monthly Distance (km)</label>
+                                <label for="monthlyDistance" class="text-[11px] font-bold text-slate-400 uppercase">Monthly Distance (km)</label>
                                 <input type="number" id="monthlyDistance" value="1200" step="50"
                                     class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div id="fuel-consumption-field">
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Consumption (km/L)</label>
+                                <label for="fuelConsumption" class="text-[11px] font-bold text-slate-400 uppercase">Consumption (km/L)</label>
                                 <input type="number" id="fuelConsumption" value="12" step="0.5"
                                     class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div id="fuel-price-field">
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Fuel Price (RM/L)</label>
+                                <label for="fuelPrice" class="text-[11px] font-bold text-slate-400 uppercase">Fuel Price (RM/L)</label>
                                 <input type="number" id="fuelPrice" value="1.99" step="0.01"
                                     class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div id="ev-cost-field" class="hidden">
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Energy Cost (RM/km)</label>
+                                <label for="evCostPerKm" class="text-[11px] font-bold text-slate-400 uppercase">Energy Cost (RM/km)</label>
                                 <input type="number" id="evCostPerKm" value="0.05" step="0.01"
                                     class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
@@ -269,46 +299,65 @@
 
                         <div class="pt-2 border-t border-slate-100 dark:border-slate-700 grid grid-cols-2 gap-2">
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Insurance (RM/yr)</label>
+                                <label for="insuranceAnnual" class="text-[11px] font-bold text-slate-400 uppercase">Insurance (RM/yr)</label>
                                 <input type="text" inputmode="decimal" id="insuranceAnnual" value="1,800"
                                     class="comma-fmt w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Maintenance (RM/mth)</label>
+                                <label for="maintenanceMonthly" class="text-[11px] font-bold text-slate-400 uppercase">Maintenance (RM/mth)</label>
                                 <input type="text" inputmode="decimal" id="maintenanceMonthly" value="150"
                                     class="comma-fmt w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                         </div>
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Depreciation Rate (%/yr)</label>
+                            <label for="depreciationPct" class="text-[11px] font-bold text-slate-400 uppercase">Depreciation Rate (%/yr)</label>
                             <input type="number" id="depreciationPct" value="15" step="1"
                                 class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                         </div>
                     </div>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
-                        Insurance and maintenance are your own estimates or quotes -- this calculator doesn't price them for you. Loan uses the post-2026 reducing-balance method; road tax follows JPJ's cc/kW schedule.
+                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                        Insurance and maintenance are your own estimates or quotes &mdash; this calculator doesn't price them for you. Loan uses the post-2026 reducing-balance method; road tax follows JPJ's cc/kW schedule.
                     </p>
+                </div>
+                <div class="kd-actions flex flex-col items-start gap-2">
+                    <button type="button" onclick="window.print()"
+                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                        </svg>
+                        Download Report
+                    </button>
+                    <button type="button" onclick="kdShareCalculation()"
+                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
+                        </svg>
+                        Share This Calculation
+                    </button>
+                    <span id="kd-share-msg" role="status" class="text-[11px] text-green-600 dark:text-green-400 font-bold"></span>
                 </div>
             </div>
 
             <div class="lg:col-span-8 space-y-4">
                 <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white">
-                    <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest">True Monthly Cost of Ownership</p>
+                    <p class="text-[11px] font-bold text-blue-200 uppercase tracking-widest">True Monthly Cost of Ownership</p>
                     <p id="result-monthly-true-cost" class="text-3xl font-black break-words leading-tight">RM0</p>
-                    <p class="text-[9px] text-blue-200 uppercase mt-1">cash outflow, net of resale value &amp; loan payoff</p>
+                    <p class="text-[11px] text-blue-200 uppercase mt-1">cash outflow, net of resale value &amp; loan payoff</p>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Cash Outflow</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Cash Outflow</p>
                         <p id="result-total-outflow" class="text-lg font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Est. Resale Value</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Est. Resale Value</p>
                         <p id="result-resale-value" class="text-lg font-black text-green-600 dark:text-green-400">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center col-span-2 md:col-span-1">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Remaining Loan Balance</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Remaining Loan Balance</p>
                         <p id="result-remaining-loan" class="text-lg font-black text-red-600 dark:text-red-300">RM0</p>
                     </div>
                 </div>
@@ -319,7 +368,7 @@
                     </div>
                     <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
                         <table class="w-full text-center">
-                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[9px] font-black text-slate-400 uppercase">
+                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[11px] font-black text-slate-400 uppercase">
                                 <tr>
                                     <th class="p-2 text-left">Cost Component</th>
                                     <th class="p-2">Over Ownership Period</th>
@@ -330,17 +379,22 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
-                    <h4 class="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">How This Is Calculated</h4>
-                    <ul class="text-[10px] text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+                <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
+                    <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
+                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
+                        <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                    </summary>
+                    <div class="mt-3">
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                         <li><strong>Loan:</strong> monthly installment uses the post-2026 reducing-balance method, with the EIR estimated from your flat rate (same approach as the Hire Purchase Calculator).</li>
                         <li><strong>Road tax:</strong> looked up from JPJ's cc-based schedule (petrol/diesel) or the 2026 kW-based EV schedule, same as the Road Tax Calculator.</li>
                         <li><strong>Fuel/energy:</strong> monthly distance &divide; consumption &times; fuel price (petrol/diesel), or distance &times; cost-per-km (EV).</li>
-                        <li><strong>Resale &amp; loan payoff:</strong> the car's value is depreciated year by year at your chosen rate. If you sell before the loan is fully paid, any remaining loan balance is estimated and netted against the resale value -- this can produce negative equity if the car is worth less than what's owed.</li>
+                        <li><strong>Resale &amp; loan payoff:</strong> the car's value is depreciated year by year at your chosen rate. If you sell before the loan is fully paid, any remaining loan balance is estimated and netted against the resale value &mdash; this can produce negative equity if the car is worth less than what's owed.</li>
                         <li><strong>True monthly cost:</strong> (total cash outflow &minus; resale value + remaining loan balance) &divide; months of ownership. Insurance and maintenance are your own inputs, not estimated by this calculator.</li>
-                        <li><strong>Disclaimer:</strong> this calculator is a planning guide only, using approximated formulas for loan EIR and road tax -- it does not replace an official quote.</li>
+                        <li><strong>Disclaimer:</strong> this calculator is a planning guide only, using approximated formulas for loan EIR and road tax &mdash; it does not replace an official quote.</li>
                     </ul>
-                </div>
+                    </div>
+                </details>
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
@@ -351,7 +405,7 @@
                         </div>
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Why does the monthly true cost differ from just the loan installment?</p>
-                            <p>The loan installment is only one slice of running a car -- road tax, insurance, fuel and maintenance add up on top, while depreciation reduces what you'll get back at resale.</p>
+                            <p>The loan installment is only one slice of running a car &mdash; road tax, insurance, fuel and maintenance add up on top, while depreciation reduces what you'll get back at resale.</p>
                         </div>
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What happens if I sell before the loan is fully paid?</p>
@@ -361,21 +415,74 @@
                 </div>
             </div>
         </div>
+    </main>
 
-        <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 text-center">
-            <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-2">More Free Tools</p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="../property-roi-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                <a href="../tenant-rental-quote-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                <a href="../" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                <a href="../epf-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Retirement Calculator</a>
-                <a href="../income-tax-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                <a href="../savings-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                <a href="../hire-purchase-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                <a href="../road-tax-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
+    <!-- site-footer: identical on every page -- update all pages together -->
+    <footer class="border-t border-slate-200 dark:border-slate-700 mt-6">
+        <div class="max-w-5xl mx-auto px-4 py-10">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-6">Free Malaysian calculators</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Property</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                        </li>
+                        <li>
+                            <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Personal Finance</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                        </li>
+                        <li>
+                            <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                        </li>
+                        <li>
+                            <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                        </li>
+                        <li>
+                            <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Car</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                        </li>
+                        <li>
+                            <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                        </li>
+                        <li>
+                            <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Car Cost of Ownership</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+                <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
+                <p class="flex gap-5">
+                    <a href="../about/" class="hover:underline">About</a>
+                    <a href="../about/#contact" class="hover:underline">Contact</a>
+                </p>
             </div>
         </div>
-    </main>
+    </footer>
 
     <script src="car-tco-calculator.js"></script>
 </body>

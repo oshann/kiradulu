@@ -37,6 +37,7 @@
     </script>
     <link rel="stylesheet" href="../assets/tailwind.css">
     <link rel="stylesheet" href="../assets/site.css">
+    <script src="../assets/site.js"></script>
     <style>
         @media print {
             header nav, #sidebar-inputs, button {
@@ -78,7 +79,7 @@
             {
                 "@type": "Question",
                 "name": "Does this calculator include all tax reliefs?",
-                "acceptedAnswer": { "@type": "Answer", "text": "No. This is a simplified estimate covering personal, EPF, spouse, and child relief, plus a lump-sum field for any other reliefs. LHDN offers around 20 relief categories in total (lifestyle, medical, education, etc.) -- for an exact figure, use LHDN's official e-Filing system or consult a tax agent." }
+                "acceptedAnswer": { "@type": "Answer", "text": "No. This is a simplified estimate covering personal, EPF, spouse, and child relief, plus a lump-sum field for any other reliefs. LHDN offers around 20 relief categories in total (lifestyle, medical, education, etc.) &mdash; for an exact figure, use LHDN's official e-Filing system or consult a tax agent." }
             }
         ]
     }
@@ -101,88 +102,117 @@
 
 <body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-    <header class="blue-gradient text-white py-6 px-4 shadow-lg mb-4" style="background: linear-gradient(135deg, #17392A 0%, #2E6E52 100%);">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-3">
-            <div>
-                <a href="../"><h1 class="text-2xl font-black tracking-tighter italic leading-none">KiraDulu</h1></a>
-                <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-blue-200 mt-1 opacity-80">Kira Dulu, Baru Decide</p>
-            </div>
-            <nav class="flex flex-wrap justify-center gap-4 items-center">
-                <button onclick="toggleDarkMode()" id="dark-toggle-btn"
-                    class="text-blue-100 hover:text-white transition p-1.5 rounded-lg hover:bg-white/10" title="Toggle dark mode">
-                    <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- site-header: identical on every page (current page highlighted) -- update all pages together -->
+    <header class="kd-header text-white shadow-lg mb-6">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+            <a href="../" class="leading-none shrink-0" aria-label="KiraDulu home">
+                <span class="block text-2xl font-black tracking-tighter italic">KiraDulu</span>
+                <span class="block text-[11px] uppercase tracking-[0.2em] font-bold text-blue-200 mt-1 opacity-80">Kira Dulu, Baru Decide</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6" aria-label="Calculators">
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">
+                        Property <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../property-roi-calculator/#simple" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Property ROI Calculator</a>
+                            <a href="../property-roi-calculator/#projection" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">30-Year Projection</a>
+                            <a href="../property-roi-calculator/#compare" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Compare Properties</a>
+                            <a href="../tenant-rental-quote-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Tenant Rental Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-white kd-nav-active transition">
+                        Personal Finance <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Salary Calculator</a>
+                            <a href="../epf-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">EPF Calculator</a>
+                            <a href="../income-tax-calculator/" class="block px-4 py-2 text-sm font-bold text-blue-700 dark:text-blue-400 bg-slate-50 dark:bg-slate-700" aria-current="page">Income Tax Calculator</a>
+                            <a href="../savings-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Savings Calculator</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">
+                        Car <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../hire-purchase-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Hire Purchase Calculator</a>
+                            <a href="../road-tax-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Road Tax Calculator</a>
+                            <a href="../car-tco-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Car Cost of Ownership</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../about/" class="py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">About</a>
+                <a href="../about/#contact" class="py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">Contact</a>
+            </nav>
+            <div class="flex items-center gap-1">
+                <button onclick="toggleDarkMode()" id="dark-toggle-btn" type="button"
+                    class="text-blue-100 hover:text-white transition p-2 rounded-lg hover:bg-white/10" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
                 </button>
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Property ROI
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../property-roi-calculator/#simple" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Simple</a>
-                            <a href="../property-roi-calculator/#projection" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">30-Year Projection</a>
-                            <a href="../property-roi-calculator/#compare" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Compare</a>
-                            <a href="../tenant-rental-quote-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Tenant Rental Quote</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Personal Finance
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute right-0 md:left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Salary Calculator</a>
-                            <a href="../epf-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">EPF Calculator</a>
-                            <span class="block px-4 py-2 text-xs font-bold text-blue-700 dark:text-blue-400">Income Tax Calculator</span>
-                            <a href="../savings-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Savings Calculator</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Car Finance
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute right-0 md:left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../hire-purchase-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Hire Purchase Calculator</a>
-                            <a href="../road-tax-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Road Tax Calculator</a>
-                            <a href="../car-tco-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Total Cost of Ownership</a>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="../property-roi-calculator/#about"
-                    class="text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition pb-1">About</a>
-                <a href="../property-roi-calculator/#contact"
-                    class="text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition pb-1">Contact</a>
-            </nav>
+                <button id="kd-menu-btn" type="button" aria-expanded="false" aria-controls="kd-mobile-menu" aria-label="Menu"
+                    class="md:hidden text-blue-100 hover:text-white transition p-2 rounded-lg hover:bg-white/10">
+                    <svg id="kd-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <svg id="kd-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
         </div>
+        <nav id="kd-mobile-menu" class="md:hidden hidden border-t border-white/10 px-4 pb-4" aria-label="Calculators">
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Property</p>
+                <a href="../property-roi-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Property ROI Calculator</a>
+                <a href="../property-roi-calculator/#projection" class="block py-2 pl-7 pr-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">30-Year Projection</a>
+                <a href="../property-roi-calculator/#compare" class="block py-2 pl-7 pr-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Compare Properties</a>
+                <a href="../tenant-rental-quote-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Tenant Rental Quote</a>
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Personal Finance</p>
+                <a href="../" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Salary Calculator</a>
+                <a href="../epf-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">EPF Calculator</a>
+                <a href="../income-tax-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm font-bold text-white bg-white/10" aria-current="page">Income Tax Calculator</a>
+                <a href="../savings-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Savings Calculator</a>
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Car</p>
+                <a href="../hire-purchase-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Hire Purchase Calculator</a>
+                <a href="../road-tax-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Road Tax Calculator</a>
+                <a href="../car-tco-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Car Cost of Ownership</a>
+            <div class="mt-4 pt-3 border-t border-white/10 flex gap-6">
+                <a href="../about/" class="py-2 text-sm text-blue-100">About</a>
+                <a href="../about/#contact" class="py-2 text-sm text-blue-100">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <main class="max-w-5xl mx-auto px-4 pb-10">
-        <h2 class="text-xl font-black text-blue-900 dark:text-blue-300 mb-1">Malaysia Income Tax Calculator (YA2025)</h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Estimate your chargeable income and tax payable using LHDN's progressive tax brackets.</p>
+        <h1 class="text-xl md:text-2xl font-black text-blue-900 dark:text-blue-300 mb-1">Malaysia Income Tax Calculator (YA2025)</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Estimate your chargeable income and tax payable using LHDN's progressive tax brackets.</p>
+        <!-- Mobile summary bar: headline results stay in view while editing inputs (mirrored by assets/site.js) -->
+        <div class="kd-sticky lg:hidden sticky top-0 z-30 -mx-4 px-4 py-2 mb-4 bg-blue-900 text-white shadow-md flex justify-around items-center gap-2" aria-hidden="true">
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Tax payable</p>
+                <p data-kd-mirror="result-tax" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Per month</p>
+                <p data-kd-mirror="result-monthly-tax" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Effective rate</p>
+                <p data-kd-mirror="result-effective-rate" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div id="sidebar-inputs" class="lg:col-span-4 space-y-4">
@@ -190,27 +220,27 @@
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
                         <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Your Details</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
-                            class="text-[9px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
+                            class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Monthly Salary (RM)</label>
+                            <label for="monthlySalary" class="text-[11px] font-bold text-slate-400 uppercase">Monthly Salary (RM)</label>
                             <input type="text" inputmode="decimal" id="monthlySalary" value="8,333"
                                 class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Annual Income (RM)</label>
+                            <label for="annualIncome" class="text-[11px] font-bold text-slate-400 uppercase">Annual Income (RM)</label>
                             <input type="text" inputmode="decimal" id="annualIncome" value="100,000"
                                 class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Annual EPF Contribution (RM)</label>
+                            <label for="annualEpf" class="text-[11px] font-bold text-slate-400 uppercase">Annual EPF Contribution (RM)</label>
                             <input type="text" inputmode="decimal" id="annualEpf" value="6,600"
                                 class="comma-fmt w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Marital Status</label>
+                                <label for="maritalStatus" class="text-[11px] font-bold text-slate-400 uppercase">Marital Status</label>
                                 <select id="maritalStatus"
                                     class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                                     <option value="single" selected>Single</option>
@@ -218,28 +248,28 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">No. of Children (&lt;18)</label>
+                                <label for="numChildren" class="text-[11px] font-bold text-slate-400 uppercase">No. of Children (&lt;18)</label>
                                 <input type="number" id="numChildren" value="0" min="0"
                                     class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                         </div>
                         <div id="spouse-relief-wrap" class="hidden flex items-center gap-2 pt-1">
                             <input type="checkbox" id="claimSpouseRelief" class="w-4 h-4 cursor-pointer">
-                            <label for="claimSpouseRelief" class="text-[10px] font-bold text-slate-500 dark:text-slate-400 cursor-pointer">Claiming spouse relief (RM4,000)</label>
+                            <label for="claimSpouseRelief" class="text-xs font-bold text-slate-500 dark:text-slate-400 cursor-pointer">Claiming spouse relief (RM4,000)</label>
                         </div>
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Other Reliefs (RM)</label>
+                            <label for="otherReliefs" class="text-[11px] font-bold text-slate-400 uppercase">Other Reliefs (RM)</label>
                             <input type="text" inputmode="decimal" id="otherReliefs" value="0"
                                 class="comma-fmt w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                         </div>
                     </div>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
-                        "Other Reliefs" covers lifestyle, medical, education, SSPN, and any relief not listed above -- lump it together here.
+                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                        "Other Reliefs" covers lifestyle, medical, education, SSPN, and any relief not listed above &mdash; lump it together here.
                     </p>
                 </div>
                 <div class="flex flex-col items-start gap-2">
                     <button onclick="window.print()"
-                        class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
+                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -247,14 +277,14 @@
                         Download Report
                     </button>
                     <button onclick="copyShareableLink()"
-                        class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
+                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
                         </svg>
                         Share This Calculation
                     </button>
-                    <span id="shareMsg" class="text-[10px] text-green-600 dark:text-green-400 font-bold"></span>
+                    <span id="shareMsg" class="text-xs text-green-600 dark:text-green-400 font-bold"></span>
                 </div>
             </div>
 
@@ -266,30 +296,30 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white col-span-2 md:col-span-1">
-                        <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Estimated Tax Payable</p>
+                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-widest">Estimated Tax Payable</p>
                         <p id="result-tax" class="text-3xl font-black break-words leading-tight">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Net Income After Tax</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Net Income After Tax</p>
                         <p id="result-net-income" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Effective Tax Rate</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Effective Tax Rate</p>
                         <p id="result-effective-rate" class="text-2xl font-black text-blue-700 dark:text-blue-400">0.00%</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2">Total Reliefs</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Total Reliefs</p>
                         <p id="result-total-reliefs" class="text-lg font-black text-green-600 dark:text-green-400">RM0</p>
                     </div>
                     <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2">Chargeable Income</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Chargeable Income</p>
                         <p id="result-chargeable" class="text-lg font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                     <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 text-center col-span-2 md:col-span-1">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2">Monthly Equivalent</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Monthly Equivalent</p>
                         <p id="result-monthly-tax" class="text-lg font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                 </div>
@@ -307,28 +337,33 @@
 
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
                     <table class="w-full">
-                        <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[9px] font-black text-slate-400 uppercase">
+                        <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[11px] font-black text-slate-400 uppercase">
                             <tr>
                                 <th class="p-3 text-left">Bracket</th>
                                 <th class="p-3">Rate</th>
                                 <th class="p-3">Tax</th>
                             </tr>
                         </thead>
-                        <tbody id="bracket-table" class="text-[10px]"></tbody>
+                        <tbody id="bracket-table" class="text-xs"></tbody>
                     </table>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 p-3 border-t dark:border-slate-700">RM400 rebate applied when eligible (chargeable income ≤ RM35,000): <span id="result-rebate">RM0</span></p>
+                    <p class="text-xs text-slate-400 dark:text-slate-500 p-3 border-t dark:border-slate-700">RM400 rebate applied when eligible (chargeable income ≤ RM35,000): <span id="result-rebate">RM0</span></p>
                 </div>
 
-                <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
-                    <h4 class="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">How This Is Calculated (YA2025)</h4>
-                    <ul class="text-[10px] text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+                <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
+                    <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
+                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated (YA2025)</h4>
+                        <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                    </summary>
+                    <div class="mt-3">
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                         <li><strong>Chargeable Income:</strong> Annual Income minus Personal Relief (RM9,000, automatic) minus EPF Relief (up to RM4,000) minus Spouse Relief (RM4,000, if claimed) minus Child Relief (RM2,000 per child under 18) minus Other Reliefs.</li>
                         <li><strong>Tax Brackets:</strong> LHDN's YA2025 progressive rates, 0% to 30%, applied to chargeable income (unchanged from YA2024).</li>
                         <li><strong>RM400 Rebate:</strong> Applied automatically when chargeable income is RM35,000 or below.</li>
-                        <li><strong>Simplifications:</strong> Child relief above uses the basic under-18 rate only (tertiary-education and disabled-child reliefs can be higher -- add the difference under "Other Reliefs"). This tool does not enumerate all ~20 LHDN relief categories individually.</li>
+                        <li><strong>Simplifications:</strong> Child relief above uses the basic under-18 rate only (tertiary-education and disabled-child reliefs can be higher &mdash; add the difference under "Other Reliefs"). This tool does not enumerate all ~20 LHDN relief categories individually.</li>
                         <li><strong>Disclaimer:</strong> This calculator is a guide only. For an exact figure, use LHDN's official e-Filing system or consult a licensed tax agent.</li>
                     </ul>
-                </div>
+                    </div>
+                </details>
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
@@ -343,27 +378,80 @@
                         </div>
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Does this include every tax relief?</p>
-                            <p>No -- it covers the most common ones and a lump-sum "other reliefs" field. For an exact figure, use LHDN's e-Filing system.</p>
+                            <p>No &mdash; it covers the most common ones and a lump-sum "other reliefs" field. For an exact figure, use LHDN's e-Filing system.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 text-center">
-            <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-2">More Free Tools</p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="../property-roi-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                <a href="../tenant-rental-quote-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                <a href="../" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                <a href="../epf-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Retirement Calculator</a>
-                <a href="../savings-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                <a href="../hire-purchase-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                <a href="../road-tax-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
-                <a href="../car-tco-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Total Cost of Ownership</a>
+    <!-- site-footer: identical on every page -- update all pages together -->
+    <footer class="border-t border-slate-200 dark:border-slate-700 mt-6">
+        <div class="max-w-5xl mx-auto px-4 py-10">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-6">Free Malaysian calculators</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Property</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                        </li>
+                        <li>
+                            <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Personal Finance</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                        </li>
+                        <li>
+                            <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                        </li>
+                        <li>
+                            <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Income Tax Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                        </li>
+                        <li>
+                            <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Car</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                        </li>
+                        <li>
+                            <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                        </li>
+                        <li>
+                            <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+                <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
+                <p class="flex gap-5">
+                    <a href="../about/" class="hover:underline">About</a>
+                    <a href="../about/#contact" class="hover:underline">Contact</a>
+                </p>
             </div>
         </div>
-    </main>
+    </footer>
 
     <script src="income-tax-calculator.js"></script>
 </body>

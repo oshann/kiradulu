@@ -37,6 +37,7 @@
     </script>
     <link rel="stylesheet" href="../assets/tailwind.css">
     <link rel="stylesheet" href="../assets/site.css">
+    <script src="../assets/site.js"></script>
 
     <script type="application/ld+json">
     {
@@ -68,7 +69,7 @@
             {
                 "@type": "Question",
                 "name": "Why is road tax cheaper in Sabah and Sarawak?",
-                "acceptedAnswer": { "@type": "Answer", "text": "JPJ sets lower road tax rates for East Malaysia to reflect the region's road conditions and higher reliance on larger, four-wheel-drive vehicles. This calculator applies an approximate discount to the Peninsular Malaysia formula -- check MyJPJ for your exact East Malaysia figure." }
+                "acceptedAnswer": { "@type": "Answer", "text": "JPJ sets lower road tax rates for East Malaysia to reflect the region's road conditions and higher reliance on larger, four-wheel-drive vehicles. This calculator applies an approximate discount to the Peninsular Malaysia formula &mdash; check MyJPJ for your exact East Malaysia figure." }
             },
             {
                 "@type": "Question",
@@ -94,90 +95,115 @@
     </script>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body data-kd-share="kiradulu_road_tax_inputs" class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-    <header class="blue-gradient text-white py-6 px-4 shadow-lg mb-4" style="background: linear-gradient(135deg, #17392A 0%, #2E6E52 100%);">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-3">
-            <div>
-                <a href="../"><h1 class="text-2xl font-black tracking-tighter italic leading-none">KiraDulu</h1></a>
-                <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-blue-200 mt-1 opacity-80">Kira Dulu, Baru Decide</p>
-            </div>
-            <nav class="flex flex-wrap justify-center gap-4 items-center">
-                <button onclick="toggleDarkMode()" id="dark-toggle-btn"
-                    class="text-blue-100 hover:text-white transition p-1.5 rounded-lg hover:bg-white/10" title="Toggle dark mode">
-                    <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- site-header: identical on every page (current page highlighted) -- update all pages together -->
+    <header class="kd-header text-white shadow-lg mb-6">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+            <a href="../" class="leading-none shrink-0" aria-label="KiraDulu home">
+                <span class="block text-2xl font-black tracking-tighter italic">KiraDulu</span>
+                <span class="block text-[11px] uppercase tracking-[0.2em] font-bold text-blue-200 mt-1 opacity-80">Kira Dulu, Baru Decide</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6" aria-label="Calculators">
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">
+                        Property <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../property-roi-calculator/#simple" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Property ROI Calculator</a>
+                            <a href="../property-roi-calculator/#projection" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">30-Year Projection</a>
+                            <a href="../property-roi-calculator/#compare" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Compare Properties</a>
+                            <a href="../tenant-rental-quote-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Tenant Rental Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">
+                        Personal Finance <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Salary Calculator</a>
+                            <a href="../epf-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">EPF Calculator</a>
+                            <a href="../income-tax-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Income Tax Calculator</a>
+                            <a href="../savings-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Savings Calculator</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd-dd relative">
+                    <button type="button" data-kd-dd aria-expanded="false"
+                        class="flex items-center gap-1 py-2 text-xs font-bold uppercase tracking-wider text-white kd-nav-active transition">
+                        Car <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="kd-dd-panel absolute left-0 top-full pt-2 z-50">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-60 py-2 text-left">
+                            <a href="../hire-purchase-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Hire Purchase Calculator</a>
+                            <a href="../road-tax-calculator/" class="block px-4 py-2 text-sm font-bold text-blue-700 dark:text-blue-400 bg-slate-50 dark:bg-slate-700" aria-current="page">Road Tax Calculator</a>
+                            <a href="../car-tco-calculator/" class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Car Cost of Ownership</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../about/" class="py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">About</a>
+                <a href="../about/#contact" class="py-2 text-xs font-bold uppercase tracking-wider text-blue-100 hover:text-white transition">Contact</a>
+            </nav>
+            <div class="flex items-center gap-1">
+                <button onclick="toggleDarkMode()" id="dark-toggle-btn" type="button"
+                    class="text-blue-100 hover:text-white transition p-2 rounded-lg hover:bg-white/10" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
                 </button>
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Property ROI
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../property-roi-calculator/#simple" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Simple</a>
-                            <a href="../property-roi-calculator/#projection" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">30-Year Projection</a>
-                            <a href="../property-roi-calculator/#compare" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Compare</a>
-                            <a href="../tenant-rental-quote-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Tenant Rental Quote</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Personal Finance
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute right-0 md:left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Salary Calculator</a>
-                            <a href="../epf-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">EPF Calculator</a>
-                            <a href="../income-tax-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Income Tax Calculator</a>
-                            <a href="../savings-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Savings Calculator</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button type="button"
-                        class="flex items-center gap-1 pb-1 text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition">
-                        Car Finance
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute right-0 md:left-0 top-full pt-2 hidden group-hover:block z-50">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 w-56 py-2 text-left">
-                            <a href="../hire-purchase-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Hire Purchase Calculator</a>
-                            <span class="block px-4 py-2 text-xs font-bold text-blue-700 dark:text-blue-400">Road Tax Calculator</span>
-                            <a href="../car-tco-calculator/" class="block px-4 py-2 text-xs text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Total Cost of Ownership</a>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="../property-roi-calculator/#about"
-                    class="text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition pb-1">About</a>
-                <a href="../property-roi-calculator/#contact"
-                    class="text-[11px] uppercase tracking-wider text-blue-100 hover:text-white transition pb-1">Contact</a>
-            </nav>
+                <button id="kd-menu-btn" type="button" aria-expanded="false" aria-controls="kd-mobile-menu" aria-label="Menu"
+                    class="md:hidden text-blue-100 hover:text-white transition p-2 rounded-lg hover:bg-white/10">
+                    <svg id="kd-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <svg id="kd-menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
         </div>
+        <nav id="kd-mobile-menu" class="md:hidden hidden border-t border-white/10 px-4 pb-4" aria-label="Calculators">
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Property</p>
+                <a href="../property-roi-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Property ROI Calculator</a>
+                <a href="../property-roi-calculator/#projection" class="block py-2 pl-7 pr-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">30-Year Projection</a>
+                <a href="../property-roi-calculator/#compare" class="block py-2 pl-7 pr-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Compare Properties</a>
+                <a href="../tenant-rental-quote-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Tenant Rental Quote</a>
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Personal Finance</p>
+                <a href="../" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Salary Calculator</a>
+                <a href="../epf-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">EPF Calculator</a>
+                <a href="../income-tax-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Income Tax Calculator</a>
+                <a href="../savings-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Savings Calculator</a>
+            <p class="mt-4 mb-1 text-[11px] uppercase tracking-widest font-bold text-blue-200">Car</p>
+                <a href="../hire-purchase-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Hire Purchase Calculator</a>
+                <a href="../road-tax-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm font-bold text-white bg-white/10" aria-current="page">Road Tax Calculator</a>
+                <a href="../car-tco-calculator/" class="block py-2 px-3 -mx-3 rounded-lg text-sm text-blue-100 hover:bg-white/10">Car Cost of Ownership</a>
+            <div class="mt-4 pt-3 border-t border-white/10 flex gap-6">
+                <a href="../about/" class="py-2 text-sm text-blue-100">About</a>
+                <a href="../about/#contact" class="py-2 text-sm text-blue-100">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <main class="max-w-5xl mx-auto px-4 pb-10">
-        <h2 class="text-xl font-black text-blue-900 dark:text-blue-300 mb-1">Road Tax Calculator (Cukai Jalan)</h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Work out your annual JPJ road tax by engine capacity or EV motor power.</p>
+        <h1 class="text-xl md:text-2xl font-black text-blue-900 dark:text-blue-300 mb-1">Road Tax Calculator (Cukai Jalan)</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Work out your annual JPJ road tax by engine capacity or EV motor power.</p>
+        <!-- Mobile summary bar: headline results stay in view while editing inputs (mirrored by assets/site.js) -->
+        <div class="kd-sticky lg:hidden sticky top-0 z-30 -mx-4 px-4 py-2 mb-4 bg-blue-900 text-white shadow-md flex justify-around items-center gap-2" aria-hidden="true">
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Road tax /yr</p>
+                <p data-kd-mirror="result-annual" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+            <div class="text-center">
+                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Per month</p>
+                <p data-kd-mirror="result-monthly" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
+            </div>
+        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div class="lg:col-span-4 space-y-4">
@@ -185,11 +211,11 @@
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
                         <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Vehicle Details</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
-                            class="text-[9px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
+                            class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div class="relative">
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Select Your Car (Optional)</label>
+                            <label for="engineCc" class="text-[11px] font-bold text-slate-400 uppercase">Select Your Car (Optional)</label>
                             <div class="relative mt-1">
                                 <input type="text" id="carSearchInput" autocomplete="off" placeholder="Search make or model, e.g. Myvi"
                                     class="w-full p-2 border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 rounded text-xs text-slate-700 dark:text-slate-200">
@@ -197,12 +223,12 @@
                                     class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-red-600 text-xs font-bold">&times;</button>
                             </div>
                             <div id="carSearchResults" class="hidden absolute z-40 mt-1 w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-xl max-h-56 overflow-y-auto text-xs"></div>
-                            <p class="text-[9px] text-slate-400 mt-1">Picks a ~50-model reference list of popular Malaysia cars and auto-fills the fields below. Can't find yours? Just enter the details manually.</p>
+                            <p class="text-[11px] text-slate-400 mt-1">Picks a ~50-model reference list of popular Malaysia cars and auto-fills the fields below. Can't find yours? Just enter the details manually.</p>
                         </div>
 
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Vehicle Type</label>
-                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
+                            <label class="text-[11px] font-bold text-slate-400 uppercase">Vehicle Type</label>
+                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
                                 <button type="button" id="fuel-mode-petrol" onclick="setFuelMode('petrol')" class="flex-1 py-2 transition">Petrol/Diesel</button>
                                 <button type="button" id="fuel-mode-ev" onclick="setFuelMode('ev')" class="flex-1 py-2 transition">Electric (EV)</button>
                             </div>
@@ -210,56 +236,75 @@
 
                         <div id="petrol-fields">
                             <div>
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Engine Capacity (cc)</label>
+                                <label class="text-[11px] font-bold text-slate-400 uppercase">Engine Capacity (cc)</label>
                                 <input type="number" id="engineCc" value="1600" step="10"
                                     class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
                             </div>
                             <div class="mt-3">
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Body Type</label>
-                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
+                                <label for="motorKw" class="text-[11px] font-bold text-slate-400 uppercase">Body Type</label>
+                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
                                     <button type="button" id="body-mode-saloon" onclick="setBodyMode('saloon')" class="flex-1 py-2 transition">Saloon</button>
                                     <button type="button" id="body-mode-nonsaloon" onclick="setBodyMode('nonsaloon')" class="flex-1 py-2 transition">Non-Saloon</button>
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <label class="text-[9px] font-bold text-slate-400 uppercase">Registration</label>
-                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
+                                <label class="text-[11px] font-bold text-slate-400 uppercase">Registration</label>
+                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
                                     <button type="button" id="reg-mode-personal" onclick="setRegistrationMode('personal')" class="flex-1 py-2 transition">Personal</button>
                                     <button type="button" id="reg-mode-business" onclick="setRegistrationMode('business')" class="flex-1 py-2 transition">Business</button>
                                 </div>
-                                <p class="text-[9px] text-slate-400 mt-1">Business-registered saloons pay a higher rate. No difference for non-saloon.</p>
+                                <p class="text-[11px] text-slate-400 mt-1">Business-registered saloons pay a higher rate. No difference for non-saloon.</p>
                             </div>
                         </div>
 
                         <div id="ev-fields" class="hidden">
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Motor Power Output (kW)</label>
+                            <label class="text-[11px] font-bold text-slate-400 uppercase">Motor Power Output (kW)</label>
                             <input type="number" id="motorKw" value="150" step="5"
                                 class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
-                            <p class="text-[9px] text-slate-400 mt-1">Use combined output for dual-motor / AWD EVs.</p>
+                            <p class="text-[11px] text-slate-400 mt-1">Use combined output for dual-motor / AWD EVs.</p>
                         </div>
 
                         <div>
-                            <label class="text-[9px] font-bold text-slate-400 uppercase">Region</label>
-                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[10px] font-black uppercase mt-1">
+                            <label class="text-[11px] font-bold text-slate-400 uppercase">Region</label>
+                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
                                 <button type="button" id="region-mode-peninsular" onclick="setRegionMode('peninsular')" class="flex-1 py-2 transition">Peninsular</button>
                                 <button type="button" id="region-mode-east" onclick="setRegionMode('east')" class="flex-1 py-2 transition">Sabah/Sarawak</button>
                             </div>
                         </div>
                     </div>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
-                        Rates follow JPJ's published cc-based schedule (petrol/diesel) or the 2026 kW-based EV schedule. Sabah/Sarawak figures are approximated -- check MyJPJ for your exact renewal amount.
+                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                        Rates follow JPJ's published cc-based schedule (petrol/diesel) or the 2026 kW-based EV schedule. Sabah/Sarawak figures are approximated &mdash; check MyJPJ for your exact renewal amount.
                     </p>
+                </div>
+                <div class="kd-actions flex flex-col items-start gap-2">
+                    <button type="button" onclick="window.print()"
+                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                        </svg>
+                        Download Report
+                    </button>
+                    <button type="button" onclick="kdShareCalculation()"
+                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
+                        </svg>
+                        Share This Calculation
+                    </button>
+                    <span id="kd-share-msg" role="status" class="text-[11px] text-green-600 dark:text-green-400 font-bold"></span>
                 </div>
             </div>
 
             <div class="lg:col-span-8 space-y-4">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white">
-                        <p class="text-[10px] font-bold text-blue-200 uppercase tracking-widest">Annual Road Tax</p>
+                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-widest">Annual Road Tax</p>
                         <p id="result-annual" class="text-2xl font-black break-words leading-tight">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Monthly Equivalent</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Monthly Equivalent</p>
                         <p id="result-monthly" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                 </div>
@@ -269,7 +314,7 @@
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="w-full text-center min-w-[600px]">
-                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[9px] font-black text-slate-400 uppercase">
+                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[11px] font-black text-slate-400 uppercase">
                                 <tr>
                                     <th class="p-3 text-left">Engine Capacity</th>
                                     <th class="p-3">Personal Saloon</th>
@@ -290,19 +335,24 @@
                             </tbody>
                         </table>
                     </div>
-                    <p class="text-[9px] text-slate-400 p-3 border-t border-slate-100 dark:border-slate-700">"+ RM x/cc" applies to every cc above that bracket's floor (e.g. above 1,600cc, above 1,800cc, and so on).</p>
+                    <p class="text-[11px] text-slate-400 p-3 border-t border-slate-100 dark:border-slate-700">"+ RM x/cc" applies to every cc above that bracket's floor (e.g. above 1,600cc, above 1,800cc, and so on).</p>
                 </div>
 
-                <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
-                    <h4 class="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">How This Is Calculated</h4>
-                    <ul class="text-[10px] text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
-                        <li><strong>Petrol/diesel:</strong> a flat fee applies up to 1,600cc, then a base rate plus a per-cc surcharge for every cc above each bracket's floor. Saloon (sedan/hatchback/coupe) and non-saloon (SUV/MPV/pickup) use different tables -- non-saloons pay slightly more at small engine sizes but noticeably less at large engine sizes.</li>
+                <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
+                    <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
+                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
+                        <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                    </summary>
+                    <div class="mt-3">
+                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+                        <li><strong>Petrol/diesel:</strong> a flat fee applies up to 1,600cc, then a base rate plus a per-cc surcharge for every cc above each bracket's floor. Saloon (sedan/hatchback/coupe) and non-saloon (SUV/MPV/pickup) use different tables &mdash; non-saloons pay slightly more at small engine sizes but noticeably less at large engine sizes.</li>
                         <li><strong>Business registration:</strong> company-registered saloon cars pay roughly double the personal-registration rate up to 2,500cc, rising to about 2.6&ndash;2.8&times; above that. Non-saloon vehicles pay the same rate regardless of registration type.</li>
-                        <li><strong>Electric vehicles (EV):</strong> from 1 January 2026, JPJ taxes EVs by motor power output (kW) instead of engine cc, across power bands with no saloon/non-saloon distinction. Figures here are interpolated from the published band boundaries and are approximate -- confirm your exact figure via MyJPJ.</li>
+                        <li><strong>Electric vehicles (EV):</strong> from 1 January 2026, JPJ taxes EVs by motor power output (kW) instead of engine cc, across power bands with no saloon/non-saloon distinction. Figures here are interpolated from the published band boundaries and are approximate &mdash; confirm your exact figure via MyJPJ.</li>
                         <li><strong>Sabah/Sarawak:</strong> East Malaysia rates are lower than Peninsular Malaysia. This calculator applies an approximate discount to the Peninsular formula; the official East Malaysia schedule may differ bracket by bracket.</li>
                         <li><strong>Disclaimer:</strong> this calculator is a planning guide only and does not replace your official JPJ / MyJPJ renewal notice.</li>
                     </ul>
-                </div>
+                    </div>
+                </details>
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
@@ -313,35 +363,88 @@
                         </div>
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Is EV road tax cheaper than petrol car road tax?</p>
-                            <p>For most mainstream EVs, yes -- road tax is based on motor power (kW) instead of engine cc from 1 January 2026, with no saloon/non-saloon distinction.</p>
+                            <p>For most mainstream EVs, yes &mdash; road tax is based on motor power (kW) instead of engine cc from 1 January 2026, with no saloon/non-saloon distinction.</p>
                         </div>
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Why is road tax cheaper in Sabah and Sarawak?</p>
-                            <p>JPJ sets lower rates for East Malaysia given road conditions and reliance on larger 4WD vehicles. This calculator applies an approximate discount -- check MyJPJ for your exact figure.</p>
+                            <p>JPJ sets lower rates for East Malaysia given road conditions and reliance on larger 4WD vehicles. This calculator applies an approximate discount &mdash; check MyJPJ for your exact figure.</p>
                         </div>
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">Does a company-registered car pay more road tax?</p>
-                            <p>Yes, for saloon cars -- roughly double the personal rate up to 2,500cc, rising higher above that. Non-saloon vehicles pay the same rate regardless of registration type.</p>
+                            <p>Yes, for saloon cars &mdash; roughly double the personal rate up to 2,500cc, rising higher above that. Non-saloon vehicles pay the same rate regardless of registration type.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 text-center">
-            <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-2">More Free Tools</p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="../property-roi-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                <a href="../tenant-rental-quote-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                <a href="../" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                <a href="../epf-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Retirement Calculator</a>
-                <a href="../income-tax-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                <a href="../savings-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                <a href="../hire-purchase-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                <a href="../car-tco-calculator/" class="text-[11px] font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Total Cost of Ownership</a>
+    <!-- site-footer: identical on every page -- update all pages together -->
+    <footer class="border-t border-slate-200 dark:border-slate-700 mt-6">
+        <div class="max-w-5xl mx-auto px-4 py-10">
+            <p class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-6">Free Malaysian calculators</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Property</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                        </li>
+                        <li>
+                            <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Personal Finance</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                        </li>
+                        <li>
+                            <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                        </li>
+                        <li>
+                            <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                        </li>
+                        <li>
+                            <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xs font-black uppercase tracking-widest text-blue-900 dark:text-blue-300 mb-3">Car</h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                        </li>
+                        <li>
+                            <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Road Tax Calculator</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                        </li>
+                        <li>
+                            <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+                <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
+                <p class="flex gap-5">
+                    <a href="../about/" class="hover:underline">About</a>
+                    <a href="../about/#contact" class="hover:underline">Contact</a>
+                </p>
             </div>
         </div>
-    </main>
+    </footer>
 
     <script src="car-database.js"></script>
     <script src="road-tax-calculator.js"></script>
