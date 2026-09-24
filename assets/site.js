@@ -82,8 +82,36 @@
         syncDarkIcons();
     };
 
+    // Charts: readable 13px text, coloured for the current theme (Chart.js defaults to 12px grey,
+    // which almost disappears on the dark background). Re-applied whenever the theme flips.
+    function styleCharts() {
+        if (!window.Chart) return;
+        const dark = document.documentElement.classList.contains('dark');
+        Chart.defaults.font.size = 13;
+        Chart.defaults.color = dark ? '#C9BC94' : '#5B5138';
+        Chart.defaults.borderColor = dark ? 'rgba(237, 228, 204, 0.12)' : 'rgba(38, 32, 25, 0.1)';
+        Chart.defaults.plugins.tooltip.titleFont = { size: 14, weight: 'bold' };
+        Chart.defaults.plugins.tooltip.bodyFont = { size: 13 };
+        Chart.defaults.plugins.tooltip.padding = 10;
+        Object.values(Chart.instances || {}).forEach(chart => {
+            chart.options.color = Chart.defaults.color;
+            chart.update('none');
+        });
+    }
+    new MutationObserver(styleCharts).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
     document.addEventListener('DOMContentLoaded', () => {
         syncDarkIcons();
+        styleCharts();
+
+        // Two-column input grids where every cell is just "label + input/select" get .kd-pairs
+        // (see site.css) so their labels and inputs line up row by row.
+        document.querySelectorAll('main .grid-cols-2').forEach(grid => {
+            const cells = [...grid.children];
+            const isPair = cell => cell.tagName === 'DIV' && cell.children.length === 2
+                && cell.children[0].tagName === 'LABEL' && /^(INPUT|SELECT)$/.test(cell.children[1].tagName);
+            if (cells.length && cells.every(isPair)) grid.classList.add('kd-pairs');
+        });
 
         // --- Desktop dropdowns: hover opens them (CSS); click/tap toggles for touch and keyboards ---
         const dropdowns = document.querySelectorAll('.kd-dd');

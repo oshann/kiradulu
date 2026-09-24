@@ -173,13 +173,16 @@ input[type="checkbox"], input[type="radio"] { accent-color: #275F47; }
 .kd-gold { color: #8A6D0F; }
 html.dark .kd-gold { color: #D9B23A; }
 
-/* Side-by-side inputs stay level when one label wraps onto two lines */
-main .grid-cols-2 > div:has(> label + input:last-child),
-main .grid-cols-2 > div:has(> label + select:last-child) {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+/* Side-by-side "label + input" pairs (.kd-pairs, tagged by site.js) share rows via subgrid:
+   labels start on the same line and inputs stay level even when one label wraps onto two lines. */
+.kd-pairs > div {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    row-gap: 0.25rem;
 }
+.kd-pairs > div.hidden { display: none; }
+.kd-pairs > div > label { align-self: start; }
 
 /* Phones: headline numbers in half-width metric cards (e.g. RM1,230,000) get a little more room */
 @media (max-width: 767px) {
