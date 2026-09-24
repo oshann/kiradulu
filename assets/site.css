@@ -221,3 +221,7 @@ html.dark .kd-gold { color: #D9B23A; }
 .kd-suffix { right: 0.75rem; }
 /* Values read left-to-right after their unit ("RM 100,000"), so input panels align left */
 :is(#input-container, #compare-input-container-b) :is(input, select) { text-align: left; }
+
+/* Section headings inside an input panel (e.g. Property ROI "Operations", "Entry fees") get
+   extra space above, so each group reads as its own block under its underlined title */
+:is(#input-container, #compare-input-container-b) > :not([hidden]) ~ .kd-section:not([hidden]) { margin-top: 2rem; }
