@@ -41,7 +41,7 @@ The header (`<!-- site-header -->`) and footer (`<!-- site-footer -->`) are iden
 
 ## Property ROI page
 
-`property-roi-calculator/index.html` is tab-based (`#tab-simple`, `#tab-projection`, `#tab-compare`), switched via `window.switchTab` in `calculator-clean.js`. Old `#about` / `#contact` links redirect to `/about/`.
+`property-roi-calculator/index.html` is tab-based (`#tab-simple`, `#tab-projection`, `#tab-compare`), switched via `window.switchTab` in `calculator-clean.js`. Old `#about` / `#contact` links redirect to `/about/` and `/contact/`.
 - `calculate()`: entry costs (via `calculateStampDutyLocal`) and monthly cashflow for the Simple tab.
 - `calculateProjection(...)`: the 30-year projection table and chart.
 - `getSellingMultiplier(year, propType, propClass)`: the appreciation model, the piece most likely to need tuning. `Notes.txt` records the reasoning behind specific multiplier values.
