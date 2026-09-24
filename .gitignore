@@ -34,3 +34,6 @@ desktop.ini
 # Local env files (none currently present, but never deploy these if added)
 .env
 .env.local
+# Tailwind build inputs (output assets/tailwind.css is tracked)
+tailwind.config.js
+tailwind.input.css
