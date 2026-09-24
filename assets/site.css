@@ -165,3 +165,6 @@ details.kd-details[open] .kd-chevron { transform: rotate(180deg); }
 
 /* Checkboxes use the brand green instead of the browser's default blue */
 input[type="checkbox"], input[type="radio"] { accent-color: #275F47; }
+
+/* Page titles (h1): warm ink, which flips to warm off-white in dark mode; green stays for header/buttons/results */
+.kd-title { color: var(--ink-strong); }
