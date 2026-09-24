@@ -189,3 +189,11 @@ html.dark .kd-gold { color: #D9B23A; }
     main .metric-bubble:not(.col-span-2) { padding-left: 0.75rem; padding-right: 0.75rem; }
     main .metric-bubble:not(.col-span-2) .text-2xl { font-size: 1.25rem; line-height: 1.75rem; }
 }
+
+/* ============ Input panels: more breathing room (#input-container on every calculator) ============ */
+:is(#input-container, #compare-input-container-b) > :not([hidden]) ~ :not([hidden]) { margin-top: 1.25rem; }
+:is(#input-container, #compare-input-container-b) .grid-cols-2 { column-gap: 0.875rem; row-gap: 1.25rem; }
+:is(#input-container, #compare-input-container-b) label:has(+ input, + select) { display: block; margin-bottom: 0.375rem; }
+:is(#input-container, #compare-input-container-b) :is(input:not([type="checkbox"]):not([type="radio"]), select) { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+:is(#input-container, #compare-input-container-b) .border-t { padding-top: 1.25rem; }
+.kd-pairs > div { row-gap: 0; }
