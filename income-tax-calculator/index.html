@@ -201,15 +201,15 @@
         <!-- Mobile summary bar: headline results stay in view while editing inputs (mirrored by assets/site.js) -->
         <div class="kd-sticky lg:hidden sticky top-0 z-30 -mx-4 px-4 py-2 mb-4 bg-blue-900 text-white shadow-md flex justify-around items-center gap-2" aria-hidden="true">
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Tax payable</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Tax payable</p>
                 <p data-kd-mirror="result-tax" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Per month</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Per month</p>
                 <p data-kd-mirror="result-monthly-tax" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Effective rate</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Effective rate</p>
                 <p data-kd-mirror="result-effective-rate" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
         </div>
@@ -218,58 +218,58 @@
             <div id="sidebar-inputs" class="lg:col-span-4 space-y-4">
                 <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow border border-slate-200 dark:border-slate-700">
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
-                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Your Details</h3>
+                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-xs tracking-widest">Your Details</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
-                            class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
+                            class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div>
-                            <label for="monthlySalary" class="text-[11px] font-bold text-slate-400 uppercase">Monthly Salary (RM)</label>
+                            <label for="monthlySalary" class="text-xs font-bold text-slate-400 uppercase">Monthly Salary (RM)</label>
                             <input type="text" inputmode="decimal" id="monthlySalary" value="8,333"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div>
-                            <label for="annualIncome" class="text-[11px] font-bold text-slate-400 uppercase">Annual Income (RM)</label>
+                            <label for="annualIncome" class="text-xs font-bold text-slate-400 uppercase">Annual Income (RM)</label>
                             <input type="text" inputmode="decimal" id="annualIncome" value="100,000"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div>
-                            <label for="annualEpf" class="text-[11px] font-bold text-slate-400 uppercase">Annual EPF Contribution (RM)</label>
+                            <label for="annualEpf" class="text-xs font-bold text-slate-400 uppercase">Annual EPF Contribution (RM)</label>
                             <input type="text" inputmode="decimal" id="annualEpf" value="6,600"
-                                class="comma-fmt w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="maritalStatus" class="text-[11px] font-bold text-slate-400 uppercase">Marital Status</label>
+                                <label for="maritalStatus" class="text-xs font-bold text-slate-400 uppercase">Marital Status</label>
                                 <select id="maritalStatus"
-                                    class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                    class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                                     <option value="single" selected>Single</option>
                                     <option value="married">Married</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="numChildren" class="text-[11px] font-bold text-slate-400 uppercase">No. of Children (&lt;18)</label>
+                                <label for="numChildren" class="text-xs font-bold text-slate-400 uppercase">No. of Children (&lt;18)</label>
                                 <input type="number" id="numChildren" value="0" min="0"
-                                    class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
                         </div>
                         <div id="spouse-relief-wrap" class="hidden flex items-center gap-2 pt-1">
                             <input type="checkbox" id="claimSpouseRelief" class="w-4 h-4 cursor-pointer">
-                            <label for="claimSpouseRelief" class="text-xs font-bold text-slate-500 dark:text-slate-400 cursor-pointer">Claiming spouse relief (RM4,000)</label>
+                            <label for="claimSpouseRelief" class="text-sm font-bold text-slate-500 dark:text-slate-400 cursor-pointer">Claiming spouse relief (RM4,000)</label>
                         </div>
                         <div>
-                            <label for="otherReliefs" class="text-[11px] font-bold text-slate-400 uppercase">Other Reliefs (RM)</label>
+                            <label for="otherReliefs" class="text-xs font-bold text-slate-400 uppercase">Other Reliefs (RM)</label>
                             <input type="text" inputmode="decimal" id="otherReliefs" value="0"
-                                class="comma-fmt w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
                         "Other Reliefs" covers lifestyle, medical, education, SSPN, and any relief not listed above &mdash; lump it together here.
                     </p>
                 </div>
                 <div class="flex flex-col items-start gap-2">
                     <button onclick="window.print()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -277,56 +277,56 @@
                         Download Report
                     </button>
                     <button onclick="copyShareableLink()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
                         </svg>
                         Share This Calculation
                     </button>
-                    <span id="shareMsg" class="text-xs text-green-600 dark:text-green-400 font-bold"></span>
+                    <span id="shareMsg" class="text-sm text-green-600 dark:text-green-400 font-bold"></span>
                 </div>
             </div>
 
             <div id="main-content-area" class="lg:col-span-8 space-y-4">
-                <div id="print-summary" class="hidden text-xs text-slate-600 pb-4 border-b border-slate-200">
+                <div id="print-summary" class="hidden text-sm text-slate-600 pb-4 border-b border-slate-200">
                     <p class="font-black text-blue-900 dark:text-blue-300 text-base uppercase tracking-wide mb-1">KiraDulu — Income Tax Report</p>
                     <p id="print-summary-line"></p>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white col-span-2 md:col-span-1">
-                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-widest">Estimated Tax Payable</p>
+                        <p class="text-xs font-bold text-blue-200 uppercase tracking-widest">Estimated Tax Payable</p>
                         <p id="result-tax" class="text-3xl font-black break-words leading-tight">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Net Income After Tax</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Net Income After Tax</p>
                         <p id="result-net-income" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Effective Tax Rate</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Effective Tax Rate</p>
                         <p id="result-effective-rate" class="text-2xl font-black text-blue-700 dark:text-blue-400">0.00%</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Total Reliefs</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2">Total Reliefs</p>
                         <p id="result-total-reliefs" class="text-lg font-black text-green-600 dark:text-green-400">RM0</p>
                     </div>
                     <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Chargeable Income</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2">Chargeable Income</p>
                         <p id="result-chargeable" class="text-lg font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                     <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 text-center col-span-2 md:col-span-1">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Monthly Equivalent</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2">Monthly Equivalent</p>
                         <p id="result-monthly-tax" class="text-lg font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                 </div>
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h3 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 border-b dark:border-slate-700 pb-2">Relief Breakdown</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-xs">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
                         <div class="flex justify-between"><span>Personal Relief</span><span id="break-personal-relief" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
                         <div class="flex justify-between"><span>EPF Relief (capped RM4,000)</span><span id="break-epf-relief" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
                         <div class="flex justify-between"><span>Spouse Relief</span><span id="break-spouse-relief" class="font-bold text-slate-900 dark:text-slate-100">RM0</span></div>
@@ -337,25 +337,25 @@
 
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
                     <table class="w-full">
-                        <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[11px] font-black text-slate-400 uppercase">
+                        <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-xs font-black text-slate-400 uppercase">
                             <tr>
                                 <th class="p-3 text-left">Bracket</th>
                                 <th class="p-3">Rate</th>
                                 <th class="p-3">Tax</th>
                             </tr>
                         </thead>
-                        <tbody id="bracket-table" class="text-xs"></tbody>
+                        <tbody id="bracket-table" class="text-sm"></tbody>
                     </table>
-                    <p class="text-xs text-slate-400 dark:text-slate-500 p-3 border-t dark:border-slate-700">RM400 rebate applied when eligible (chargeable income ≤ RM35,000): <span id="result-rebate">RM0</span></p>
+                    <p class="text-sm text-slate-400 dark:text-slate-500 p-3 border-t dark:border-slate-700">RM400 rebate applied when eligible (chargeable income ≤ RM35,000): <span id="result-rebate">RM0</span></p>
                 </div>
 
                 <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
                     <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
-                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated (YA2025)</h4>
+                        <h4 class="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated (YA2025)</h4>
                         <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
                     </summary>
                     <div class="mt-3">
-                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+                    <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                         <li><strong>Chargeable Income:</strong> Annual Income minus Personal Relief (RM9,000, automatic) minus EPF Relief (up to RM4,000) minus Spouse Relief (RM4,000, if claimed) minus Child Relief (RM2,000 per child under 18) minus Other Reliefs.</li>
                         <li><strong>Tax Brackets:</strong> LHDN's YA2025 progressive rates, 0% to 30%, applied to chargeable income (unchanged from YA2024).</li>
                         <li><strong>RM400 Rebate:</strong> Applied automatically when chargeable income is RM35,000 or below.</li>
@@ -367,7 +367,7 @@
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
-                    <div class="space-y-4 text-xs text-slate-600 dark:text-slate-400">
+                    <div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What are Malaysia's income tax rates for YA2025?</p>
                             <p>Progressive rates from 0% to 30%, unchanged from YA2024. See the full bracket breakdown above once you enter your income.</p>
@@ -396,11 +396,11 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
                         </li>
                         <li>
                             <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
                         </li>
                     </ul>
                 </div>
@@ -409,19 +409,19 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
                         </li>
                         <li>
                             <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
                         </li>
                         <li>
                             <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Income Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
                         </li>
                         <li>
                             <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
                         </li>
                     </ul>
                 </div>
@@ -430,20 +430,20 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
                         </li>
                         <li>
                             <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
                         </li>
                         <li>
                             <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-sm text-slate-500 dark:text-slate-400">
                 <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
                 <p class="flex gap-5">
                     <a href="../about/" class="hover:underline">About</a>

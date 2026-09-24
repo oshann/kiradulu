@@ -193,13 +193,13 @@
                         <div class="p-8 space-y-6">
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-6 text-left">
                     <div>
-                        <label for="rentalFee" class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Monthly Rental
+                        <label for="rentalFee" class="block text-xs font-bold text-slate-500 uppercase mb-1">Monthly Rental
                             (RM)</label>
                         <input type="text" inputmode="decimal" id="rentalFee" value="4,400"
                             class="comma-fmt w-full p-3 bg-slate-50 border rounded-lg font-bold text-blue-900 outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-blue-300">
                     </div>
                     <div>
-                        <label for="tenure" class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Tenure (Years)</label>
+                        <label for="tenure" class="block text-xs font-bold text-slate-500 uppercase mb-1">Tenure (Years)</label>
                         <select id="tenure" onchange="autoUpdateDeposits()"
                             class="w-full p-3 bg-slate-50 border rounded-lg outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             <option value="1">1 Year</option>
@@ -208,43 +208,43 @@
                         </select>
                     </div>
                     <div>
-                        <label for="secDepMths" class="text-[11px] font-bold text-slate-500 uppercase mb-1">Security Deposit
+                        <label for="secDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1">Security Deposit
                             (mths)</label>
                         <input type="number" id="secDepMths" value="2" step="0.5"
                             class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                     </div>
                     <div>
-                        <label for="utilDepMths" class="text-[11px] font-bold text-slate-500 uppercase mb-1 block">Utility Deposit
+                        <label for="utilDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1 block">Utility Deposit
                             (mths)</label>
                         <input type="number" id="utilDepMths" value="0.5" step="0.1"
                             class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                     </div>
                     <div>
-                        <label for="renoDepMths" class="text-[11px] font-bold text-slate-500 uppercase mb-1 block">Renovation Deposit
+                        <label for="renoDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1 block">Renovation Deposit
                             (mths)</label>
                         <input type="number" id="renoDepMths" value="0" step="0.1"
                             class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                     </div>
                     <div>
-                        <label for="adminFee" class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Tenancy Agreement Fee
+                        <label for="adminFee" class="block text-xs font-bold text-slate-500 uppercase mb-1">Tenancy Agreement Fee
                             (RM)</label>
                         <input type="text" inputmode="decimal" id="adminFee" value="0" class="comma-fmt w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                     </div>
                     <div>
-                        <label for="agencyRate" class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Agency Fee
+                        <label for="agencyRate" class="block text-xs font-bold text-slate-500 uppercase mb-1">Agency Fee
                             (mths)</label>
                         <input type="number" id="agencyRate" value="0" step="0.1"
                             class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                     </div>
                     <div>
-                        <label for="extraDepMths" class="text-[11px] font-bold text-slate-500 uppercase mb-1">Other Deposit (mths)</label>
+                        <label for="extraDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1">Other Deposit (mths)</label>
                         <input type="number" id="extraDepMths" value="0" step="0.5"
                             class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                     </div>
                 </div>
                 <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100 dark:bg-blue-950 dark:border-blue-900">
                     <input type="checkbox" id="bookingSST" checked class="w-4 h-4 cursor-pointer">
-                    <label for="bookingSST" class="text-xs font-bold text-blue-800 dark:text-blue-300 cursor-pointer">Booking Fee with 8%
+                    <label for="bookingSST" class="text-sm font-bold text-blue-800 dark:text-blue-300 cursor-pointer">Booking Fee with 8%
                         SST</label>
                 </div>
                 <button onclick="generateQuote()"
@@ -254,22 +254,22 @@
                 <div id="quoteResult" class="hidden space-y-4">
                     <div class="relative">
                         <textarea id="quoteText" aria-label="WhatsApp quote" readonly rows="31"
-                            class="w-full p-5 bg-blue-50 border border-blue-100 rounded-xl text-xs text-blue-900 font-mono dark:bg-slate-800 dark:border-blue-900 dark:text-blue-200"></textarea>
+                            class="w-full p-5 bg-blue-50 border border-blue-100 rounded-xl text-sm text-blue-900 font-mono dark:bg-slate-800 dark:border-blue-900 dark:text-blue-200"></textarea>
                         <button onclick="copyQuote()"
-                            class="absolute top-3 right-3 bg-blue-600 text-white text-xs px-3 py-1 rounded font-bold hover:bg-blue-700">COPY</button>
+                            class="absolute top-3 right-3 bg-blue-600 text-white text-sm px-3 py-1 rounded font-bold hover:bg-blue-700">COPY</button>
                     </div>
-                    <p id="copyMsg" class="text-center text-xs font-bold text-green-600 dark:text-green-400 h-2"></p>
+                    <p id="copyMsg" class="text-center text-sm font-bold text-green-600 dark:text-green-400 h-2"></p>
                 </div>
             </div>
         </div>
 
         <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left mt-4">
                     <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
-                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
+                        <h4 class="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
                         <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
                     </summary>
                     <div class="mt-3">
-            <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+            <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                 <li><strong>Deposits:</strong> Security deposit commonly matches the tenancy tenure in months (e.g. 2 months for a 2-year tenancy), plus a half-month utility deposit and any optional renovation/other deposits.</li>
                 <li><strong>Tenancy Stamping Fee:</strong> RM1 per RM250 (or part thereof) of annual rental for tenancies of 1 year or less, RM3 per RM250 for tenancies longer than 1 year, minimum RM10.</li>
                 <li><strong>Agency Fee:</strong> Optional, entered in months of rental, with 8% SST added on top if applicable.</li>
@@ -281,7 +281,7 @@
 
         <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 mt-4">
             <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
-            <div class="space-y-4 text-xs text-slate-600 dark:text-slate-400">
+            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
                 <div>
                     <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What costs are included in a tenant rental quote?</p>
                     <p>1 month advance rental, a security deposit, a utility deposit, the tenancy agreement stamping fee, and an agency fee if applicable.</p>
@@ -308,11 +308,11 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
                         </li>
                         <li>
                             <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Tenant Rental Quote</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
                         </li>
                     </ul>
                 </div>
@@ -321,19 +321,19 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
                         </li>
                         <li>
                             <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
                         </li>
                         <li>
                             <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
                         </li>
                         <li>
                             <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
                         </li>
                     </ul>
                 </div>
@@ -342,20 +342,20 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
                         </li>
                         <li>
                             <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
                         </li>
                         <li>
                             <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-sm text-slate-500 dark:text-slate-400">
                 <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
                 <p class="flex gap-5">
                     <a href="../about/" class="hover:underline">About</a>

@@ -30,7 +30,7 @@ body {
     --ink: #262019;
     --ink-strong: #1C1710;
     --ink-mid: #5B5138;
-    --ink-soft: #857A5F;
+    --ink-soft: #6B6049;
 }
 html.dark {
     --paper-bg: #1B1710;
@@ -168,3 +168,21 @@ input[type="checkbox"], input[type="radio"] { accent-color: #275F47; }
 
 /* Page titles (h1): warm ink, which flips to warm off-white in dark mode; green stays for header/buttons/results */
 .kd-title { color: var(--ink-strong); }
+
+/* Gold "real value" text: the chart's #C9A227 is too faint as text on cream, so text uses a deeper gold */
+.kd-gold { color: #8A6D0F; }
+html.dark .kd-gold { color: #D9B23A; }
+
+/* Side-by-side inputs stay level when one label wraps onto two lines */
+main .grid-cols-2 > div:has(> label + input:last-child),
+main .grid-cols-2 > div:has(> label + select:last-child) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Phones: headline numbers in half-width metric cards (e.g. RM1,230,000) get a little more room */
+@media (max-width: 767px) {
+    main .metric-bubble:not(.col-span-2) { padding-left: 0.75rem; padding-right: 0.75rem; }
+    main .metric-bubble:not(.col-span-2) .text-2xl { font-size: 1.25rem; line-height: 1.75rem; }
+}

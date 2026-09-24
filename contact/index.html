@@ -156,16 +156,16 @@
             <form action="https://formspree.io/f/xkonrrap" method="POST" class="space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="contact-name" class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">Your Name</label>
+                        <label for="contact-name" class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Your Name</label>
                         <input type="text" id="contact-name" name="name" required class="w-full p-3 bg-slate-50 border rounded-lg text-sm outline-none focus:border-blue-500 dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                     </div>
                     <div>
-                        <label for="contact-email" class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">Email Address</label>
+                        <label for="contact-email" class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Email Address</label>
                         <input type="email" id="contact-email" name="email" required class="w-full p-3 bg-slate-50 border rounded-lg text-sm outline-none focus:border-blue-500 dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                     </div>
                 </div>
                 <div>
-                    <label for="contact-message" class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">Message</label>
+                    <label for="contact-message" class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Message</label>
                     <textarea id="contact-message" name="message" rows="5" required class="w-full p-3 bg-slate-50 border rounded-lg text-sm outline-none focus:border-blue-500 dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100"></textarea>
                 </div>
                 <button type="submit"
@@ -174,10 +174,10 @@
         </section>
 
         <div class="text-center">
-            <p class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Found it useful? Share KiraDulu</p>
+            <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Found it useful? Share KiraDulu</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <button type="button" onclick="kdShareSite('whatsapp')"
-                    class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:opacity-90 transition shadow-md w-full sm:w-auto">
+                    class="flex items-center justify-center gap-2 bg-[#128C7E] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:opacity-90 transition shadow-md w-full sm:w-auto">
                     Share via WhatsApp
                 </button>
                 <button type="button" onclick="kdShareSite('copy')"
@@ -185,7 +185,7 @@
                     Copy Link
                 </button>
             </div>
-            <p id="kd-site-share-msg" role="status" class="text-green-600 dark:text-green-400 text-xs mt-2 font-bold h-4"></p>
+            <p id="kd-site-share-msg" role="status" class="text-green-600 dark:text-green-400 text-sm mt-2 font-bold h-4"></p>
         </div>
     </main>
 
@@ -199,11 +199,11 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
                         </li>
                         <li>
                             <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
                         </li>
                     </ul>
                 </div>
@@ -212,19 +212,19 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
                         </li>
                         <li>
                             <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
                         </li>
                         <li>
                             <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
                         </li>
                         <li>
                             <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
                         </li>
                     </ul>
                 </div>
@@ -233,20 +233,20 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
                         </li>
                         <li>
                             <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
                         </li>
                         <li>
                             <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-sm text-slate-500 dark:text-slate-400">
                 <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
                 <p class="flex gap-5">
                     <a href="../about/" class="hover:underline">About</a>

@@ -192,20 +192,20 @@
         <!-- Mobile summary bar: headline results stay in view while editing inputs (mirrored by assets/site.js) -->
         <div class="kd-sticky lg:hidden sticky top-0 z-30 -mx-4 px-4 py-2 mb-4 bg-blue-900 text-white shadow-md flex justify-around items-center gap-2" aria-hidden="true">
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Flat rate /mth</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Flat rate /mth</p>
                 <p data-kd-mirror="result-old-monthly" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Reducing /mth</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Reducing /mth</p>
                 <p data-kd-mirror="result-new-monthly" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">EIR</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">EIR</p>
                 <p data-kd-mirror="result-eir" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
         </div>
 
-        <div class="bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 rounded-xl p-4 text-[11px] text-blue-800 dark:text-blue-300 mb-6 leading-relaxed">
+        <div class="bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 rounded-xl p-4 text-xs text-blue-800 dark:text-blue-300 mb-6 leading-relaxed">
             From 1 June 2026, the <strong>Hire Purchase (Amendment) Act 2026</strong> replaces the old flat-rate + Rule of 78 method with an Effective Interest Rate (EIR) reducing-balance method for new loans. This only applies to <strong>new agreements</strong> and is rolling out across lenders in phases &mdash; existing loans keep their original terms.
         </div>
 
@@ -213,51 +213,51 @@
             <div class="lg:col-span-4 space-y-4">
                 <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow border border-slate-200 dark:border-slate-700">
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
-                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Loan Details</h3>
+                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-xs tracking-widest">Loan Details</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
-                            class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
+                            class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div>
-                            <label for="carPrice" class="text-[11px] font-bold text-slate-400 uppercase">Car Price (RM)</label>
+                            <label for="carPrice" class="text-xs font-bold text-slate-400 uppercase">Car Price (RM)</label>
                             <input type="text" inputmode="decimal" id="carPrice" value="100,000"
-                                class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                                class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
                         </div>
                         <div>
                             <div class="flex items-center justify-between mb-1">
-                                <label for="loanTenure" class="text-[11px] font-bold text-slate-400 uppercase">Down Payment</label>
-                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase">
+                                <label for="loanTenure" class="text-xs font-bold text-slate-400 uppercase">Down Payment</label>
+                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase">
                                     <button type="button" id="dp-mode-pct" onclick="setDownPaymentMode('pct')" class="px-2 py-0.5 transition">%</button>
                                     <button type="button" id="dp-mode-value" onclick="setDownPaymentMode('value')" class="px-2 py-0.5 transition">RM</button>
                                 </div>
                             </div>
                             <div id="dp-pct-wrap">
                                 <input type="number" id="downPaymentPct" aria-label="Down payment (%)" value="10" step="1"
-                                    class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                    class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div id="dp-value-wrap" class="hidden">
                                 <input type="text" inputmode="decimal" id="downPaymentValue" aria-label="Down payment (RM)" value="10,000"
-                                    class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                    class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                             </div>
                         </div>
                         <div>
-                            <label class="text-[11px] font-bold text-slate-400 uppercase">Tenure (Years)</label>
+                            <label for="loanTenure" class="text-xs font-bold text-slate-400 uppercase">Tenure (Years)</label>
                             <input type="number" id="loanTenure" value="7" min="1" max="9"
-                                class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div>
-                            <label for="flatRate" class="text-[11px] font-bold text-slate-400 uppercase">Quoted Flat Interest Rate (% p.a.)</label>
+                            <label for="flatRate" class="text-xs font-bold text-slate-400 uppercase">Quoted Flat Interest Rate (% p.a.)</label>
                             <input type="number" id="flatRate" value="2.75" step="0.05"
-                                class="w-full p-2 border rounded text-xs text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
                         Enter the flat rate as quoted by the dealer/bank &mdash; this calculator derives an equivalent reducing-balance EIR from it to build the "New Method" comparison.
                     </p>
                 </div>
                 <div class="kd-actions flex flex-col items-start gap-2">
                     <button type="button" onclick="window.print()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -265,49 +265,49 @@
                         Download Report
                     </button>
                     <button type="button" onclick="kdShareCalculation()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
                         </svg>
                         Share This Calculation
                     </button>
-                    <span id="kd-share-msg" role="status" class="text-[11px] text-green-600 dark:text-green-400 font-bold"></span>
+                    <span id="kd-share-msg" role="status" class="text-xs text-green-600 dark:text-green-400 font-bold"></span>
                 </div>
             </div>
 
             <div class="lg:col-span-8 space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="metric-bubble bg-red-50 dark:bg-red-950 p-6 rounded-2xl shadow-md border border-red-100 dark:border-red-900 text-center">
-                        <p class="text-[11px] font-bold text-red-600 dark:text-red-300 uppercase tracking-widest mb-1">Old Method &mdash; Flat Rate</p>
-                        <p class="text-[11px] text-slate-400 dark:text-slate-500 uppercase mb-3">Pre-June 2026</p>
+                        <p class="text-xs font-bold text-red-600 dark:text-red-300 uppercase tracking-widest mb-1">Old Method &mdash; Flat Rate</p>
+                        <p class="text-xs text-slate-400 dark:text-slate-500 uppercase mb-3">Pre-June 2026</p>
                         <p id="result-old-monthly" class="text-2xl font-black break-words leading-tight text-red-700 dark:text-red-300">RM0</p>
-                        <p class="text-[11px] text-slate-400 uppercase mt-1">per month</p>
+                        <p class="text-xs text-slate-400 uppercase mt-1">per month</p>
                         <div class="mt-4 pt-3 border-t border-red-100 dark:border-red-900 grid grid-cols-2 gap-2 text-left">
                             <div>
-                                <p class="text-[11px] text-slate-400 uppercase">Total Interest</p>
-                                <p id="result-old-interest" class="text-xs font-bold text-slate-700 dark:text-slate-200">RM0</p>
+                                <p class="text-xs text-slate-400 uppercase">Total Interest</p>
+                                <p id="result-old-interest" class="text-sm font-bold text-slate-700 dark:text-slate-200">RM0</p>
                             </div>
                             <div>
-                                <p class="text-[11px] text-slate-400 uppercase">Total Payable</p>
-                                <p id="result-old-total" class="text-xs font-bold text-slate-700 dark:text-slate-200">RM0</p>
+                                <p class="text-xs text-slate-400 uppercase">Total Payable</p>
+                                <p id="result-old-total" class="text-sm font-bold text-slate-700 dark:text-slate-200">RM0</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white">
-                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-widest mb-1">New Method &mdash; Reducing Balance</p>
-                        <p class="text-[11px] text-blue-200 uppercase mb-3">From 1 June 2026 (EIR)</p>
+                        <p class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1">New Method &mdash; Reducing Balance</p>
+                        <p class="text-xs text-blue-200 uppercase mb-3">From 1 June 2026 (EIR)</p>
                         <p id="result-new-monthly" class="text-2xl font-black break-words leading-tight">RM0</p>
-                        <p class="text-[11px] text-blue-200 uppercase mt-1">per month</p>
+                        <p class="text-xs text-blue-200 uppercase mt-1">per month</p>
                         <div class="mt-4 pt-3 border-t border-blue-800 grid grid-cols-2 gap-2 text-left">
                             <div>
-                                <p class="text-[11px] text-blue-200 uppercase">Total Interest</p>
-                                <p id="result-new-interest" class="text-xs font-bold">RM0</p>
+                                <p class="text-xs text-blue-200 uppercase">Total Interest</p>
+                                <p id="result-new-interest" class="text-sm font-bold">RM0</p>
                             </div>
                             <div>
-                                <p class="text-[11px] text-blue-200 uppercase">Total Payable</p>
-                                <p id="result-new-total" class="text-xs font-bold">RM0</p>
+                                <p class="text-xs text-blue-200 uppercase">Total Payable</p>
+                                <p id="result-new-total" class="text-sm font-bold">RM0</p>
                             </div>
                         </div>
                     </div>
@@ -315,15 +315,15 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center col-span-2 md:col-span-1">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Estimated EIR</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Estimated EIR</p>
                         <p id="result-eir" class="text-xl font-black text-slate-900 dark:text-slate-100">0.00%</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Monthly Savings</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Monthly Savings</p>
                         <p id="result-monthly-savings" class="text-xl font-black text-green-600 dark:text-green-400">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Interest Saved</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Interest Saved</p>
                         <p id="result-interest-savings" class="text-xl font-black text-green-600 dark:text-green-400">RM0</p>
                     </div>
                 </div>
@@ -334,24 +334,24 @@
 
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
                     <table class="w-full text-center">
-                        <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[11px] font-black text-slate-400 uppercase">
+                        <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-xs font-black text-slate-400 uppercase">
                             <tr>
                                 <th class="p-3 text-left">Metric</th>
                                 <th class="p-3">Old &mdash; Flat Rate</th>
                                 <th class="p-3">New &mdash; Reducing Balance</th>
                             </tr>
                         </thead>
-                        <tbody id="compare-table" class="text-[11px] divide-y divide-slate-100 dark:divide-slate-700"></tbody>
+                        <tbody id="compare-table" class="text-xs divide-y divide-slate-100 dark:divide-slate-700"></tbody>
                     </table>
                 </div>
 
                 <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
                     <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
-                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
+                        <h4 class="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
                         <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
                     </summary>
                     <div class="mt-3">
-                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+                    <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                         <li><strong>Old (flat rate):</strong> total interest = principal &times; flat rate &times; tenure (years), spread evenly over every month regardless of the declining balance.</li>
                         <li><strong>New (reducing balance / EIR):</strong> interest is charged only on the outstanding balance each month, like a standard amortizing loan. The EIR is estimated from your flat rate using the common approximation <em>EIR &approx; 2 &times; tenure &times; flat rate / (tenure + 1)</em> &mdash; this is an illustrative conversion, not an official bank figure.</li>
                         <li><strong>Principal:</strong> car price minus your down payment.</li>
@@ -363,7 +363,7 @@
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
-                    <div class="space-y-4 text-xs text-slate-600 dark:text-slate-400">
+                    <div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">What changed with the Hire Purchase (Amendment) Act 2026?</p>
                             <p>From 1 June 2026, new hire purchase agreements move from flat-rate interest (with the Rule of 78) to an EIR reducing-balance method, where interest is charged on the outstanding balance instead of the full original loan amount.</p>
@@ -392,11 +392,11 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
                         </li>
                         <li>
                             <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
                         </li>
                     </ul>
                 </div>
@@ -405,19 +405,19 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
                         </li>
                         <li>
                             <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
                         </li>
                         <li>
                             <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
                         </li>
                         <li>
                             <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
                         </li>
                     </ul>
                 </div>
@@ -426,20 +426,20 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Hire Purchase Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
                         </li>
                         <li>
                             <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
                         </li>
                         <li>
                             <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-sm text-slate-500 dark:text-slate-400">
                 <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
                 <p class="flex gap-5">
                     <a href="../about/" class="hover:underline">About</a>

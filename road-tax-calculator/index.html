@@ -196,11 +196,11 @@
         <!-- Mobile summary bar: headline results stay in view while editing inputs (mirrored by assets/site.js) -->
         <div class="kd-sticky lg:hidden sticky top-0 z-30 -mx-4 px-4 py-2 mb-4 bg-blue-900 text-white shadow-md flex justify-around items-center gap-2" aria-hidden="true">
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Road tax /yr</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Road tax /yr</p>
                 <p data-kd-mirror="result-annual" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Per month</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Per month</p>
                 <p data-kd-mirror="result-monthly" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
         </div>
@@ -209,26 +209,26 @@
             <div class="lg:col-span-4 space-y-4">
                 <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow border border-slate-200 dark:border-slate-700">
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
-                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Vehicle Details</h3>
+                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-xs tracking-widest">Vehicle Details</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
-                            class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
+                            class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div class="relative">
-                            <label for="engineCc" class="text-[11px] font-bold text-slate-400 uppercase">Select Your Car (Optional)</label>
+                            <label for="engineCc" class="text-xs font-bold text-slate-400 uppercase">Select Your Car (Optional)</label>
                             <div class="relative mt-1">
                                 <input type="text" id="carSearchInput" autocomplete="off" placeholder="Search make or model, e.g. Myvi"
-                                    class="w-full p-2 border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 rounded text-xs text-slate-700 dark:text-slate-200">
+                                    class="w-full p-2 border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 rounded text-sm text-slate-700 dark:text-slate-200">
                                 <button type="button" id="carSearchClear" onclick="clearCarSelection()" title="Clear selection"
-                                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-red-600 text-xs font-bold">&times;</button>
+                                    class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-red-600 text-sm font-bold">&times;</button>
                             </div>
-                            <div id="carSearchResults" class="hidden absolute z-40 mt-1 w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-xl max-h-56 overflow-y-auto text-xs"></div>
-                            <p class="text-[11px] text-slate-400 mt-1">Picks a ~50-model reference list of popular Malaysia cars and auto-fills the fields below. Can't find yours? Just enter the details manually.</p>
+                            <div id="carSearchResults" class="hidden absolute z-40 mt-1 w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-xl max-h-56 overflow-y-auto text-sm"></div>
+                            <p class="text-xs text-slate-400 mt-1">Picks a ~50-model reference list of popular Malaysia cars and auto-fills the fields below. Can't find yours? Just enter the details manually.</p>
                         </div>
 
                         <div>
-                            <label class="text-[11px] font-bold text-slate-400 uppercase">Vehicle Type</label>
-                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
+                            <label class="text-xs font-bold text-slate-400 uppercase">Vehicle Type</label>
+                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                 <button type="button" id="fuel-mode-petrol" onclick="setFuelMode('petrol')" class="flex-1 py-2 transition">Petrol/Diesel</button>
                                 <button type="button" id="fuel-mode-ev" onclick="setFuelMode('ev')" class="flex-1 py-2 transition">Electric (EV)</button>
                             </div>
@@ -236,49 +236,49 @@
 
                         <div id="petrol-fields">
                             <div>
-                                <label class="text-[11px] font-bold text-slate-400 uppercase">Engine Capacity (cc)</label>
+                                <label for="engineCc" class="text-xs font-bold text-slate-400 uppercase">Engine Capacity (cc)</label>
                                 <input type="number" id="engineCc" value="1600" step="10"
-                                    class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                                    class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
                             </div>
                             <div class="mt-3">
-                                <label for="motorKw" class="text-[11px] font-bold text-slate-400 uppercase">Body Type</label>
-                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
+                                <label for="motorKw" class="text-xs font-bold text-slate-400 uppercase">Body Type</label>
+                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                     <button type="button" id="body-mode-saloon" onclick="setBodyMode('saloon')" class="flex-1 py-2 transition">Saloon</button>
                                     <button type="button" id="body-mode-nonsaloon" onclick="setBodyMode('nonsaloon')" class="flex-1 py-2 transition">Non-Saloon</button>
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <label class="text-[11px] font-bold text-slate-400 uppercase">Registration</label>
-                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
+                                <label class="text-xs font-bold text-slate-400 uppercase">Registration</label>
+                                <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                     <button type="button" id="reg-mode-personal" onclick="setRegistrationMode('personal')" class="flex-1 py-2 transition">Personal</button>
                                     <button type="button" id="reg-mode-business" onclick="setRegistrationMode('business')" class="flex-1 py-2 transition">Business</button>
                                 </div>
-                                <p class="text-[11px] text-slate-400 mt-1">Business-registered saloons pay a higher rate. No difference for non-saloon.</p>
+                                <p class="text-xs text-slate-400 mt-1">Business-registered saloons pay a higher rate. No difference for non-saloon.</p>
                             </div>
                         </div>
 
                         <div id="ev-fields" class="hidden">
-                            <label class="text-[11px] font-bold text-slate-400 uppercase">Motor Power Output (kW)</label>
+                            <label for="motorKw" class="text-xs font-bold text-slate-400 uppercase">Motor Power Output (kW)</label>
                             <input type="number" id="motorKw" value="150" step="5"
-                                class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
-                            <p class="text-[11px] text-slate-400 mt-1">Use combined output for dual-motor / AWD EVs.</p>
+                                class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                            <p class="text-xs text-slate-400 mt-1">Use combined output for dual-motor / AWD EVs.</p>
                         </div>
 
                         <div>
-                            <label class="text-[11px] font-bold text-slate-400 uppercase">Region</label>
-                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
+                            <label class="text-xs font-bold text-slate-400 uppercase">Region</label>
+                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                 <button type="button" id="region-mode-peninsular" onclick="setRegionMode('peninsular')" class="flex-1 py-2 transition">Peninsular</button>
                                 <button type="button" id="region-mode-east" onclick="setRegionMode('east')" class="flex-1 py-2 transition">Sabah/Sarawak</button>
                             </div>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
                         Rates follow JPJ's published cc-based schedule (petrol/diesel) or the 2026 kW-based EV schedule. Sabah/Sarawak figures are approximated &mdash; check MyJPJ for your exact renewal amount.
                     </p>
                 </div>
                 <div class="kd-actions flex flex-col items-start gap-2">
                     <button type="button" onclick="window.print()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -286,35 +286,35 @@
                         Download Report
                     </button>
                     <button type="button" onclick="kdShareCalculation()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
                         </svg>
                         Share This Calculation
                     </button>
-                    <span id="kd-share-msg" role="status" class="text-[11px] text-green-600 dark:text-green-400 font-bold"></span>
+                    <span id="kd-share-msg" role="status" class="text-xs text-green-600 dark:text-green-400 font-bold"></span>
                 </div>
             </div>
 
             <div class="lg:col-span-8 space-y-4">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white">
-                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-widest">Annual Road Tax</p>
+                        <p class="text-xs font-bold text-blue-200 uppercase tracking-widest">Annual Road Tax</p>
                         <p id="result-annual" class="text-2xl font-black break-words leading-tight">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Monthly Equivalent</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Monthly Equivalent</p>
                         <p id="result-monthly" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                 </div>
 
-                <div id="result-breakdown" class="bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 rounded-xl p-4 text-[11px] text-blue-800 dark:text-blue-300 leading-relaxed"></div>
+                <div id="result-breakdown" class="bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 rounded-xl p-4 text-xs text-blue-800 dark:text-blue-300 leading-relaxed"></div>
 
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="w-full text-center min-w-[600px]">
-                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[11px] font-black text-slate-400 uppercase">
+                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-xs font-black text-slate-400 uppercase">
                                 <tr>
                                     <th class="p-3 text-left">Engine Capacity</th>
                                     <th class="p-3">Personal Saloon</th>
@@ -322,7 +322,7 @@
                                     <th class="p-3">Non-Saloon</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-[11px] divide-y divide-slate-100 dark:divide-slate-700">
+                            <tbody class="text-xs divide-y divide-slate-100 dark:divide-slate-700">
                                 <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,000cc and below</td><td class="p-3">RM20</td><td class="p-3">RM20</td><td class="p-3">RM20</td></tr>
                                 <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,001&ndash;1,200cc</td><td class="p-3">RM55</td><td class="p-3">RM110</td><td class="p-3">RM85</td></tr>
                                 <tr><td class="p-3 text-left font-bold text-slate-500 dark:text-slate-400">1,201&ndash;1,400cc</td><td class="p-3">RM70</td><td class="p-3">RM140</td><td class="p-3">RM100</td></tr>
@@ -335,16 +335,16 @@
                             </tbody>
                         </table>
                     </div>
-                    <p class="text-[11px] text-slate-400 p-3 border-t border-slate-100 dark:border-slate-700">"+ RM x/cc" applies to every cc above that bracket's floor (e.g. above 1,600cc, above 1,800cc, and so on).</p>
+                    <p class="text-xs text-slate-400 p-3 border-t border-slate-100 dark:border-slate-700">"+ RM x/cc" applies to every cc above that bracket's floor (e.g. above 1,600cc, above 1,800cc, and so on).</p>
                 </div>
 
                 <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
                     <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
-                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
+                        <h4 class="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
                         <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
                     </summary>
                     <div class="mt-3">
-                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+                    <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                         <li><strong>Petrol/diesel:</strong> a flat fee applies up to 1,600cc, then a base rate plus a per-cc surcharge for every cc above each bracket's floor. Saloon (sedan/hatchback/coupe) and non-saloon (SUV/MPV/pickup) use different tables &mdash; non-saloons pay slightly more at small engine sizes but noticeably less at large engine sizes.</li>
                         <li><strong>Business registration:</strong> company-registered saloon cars pay roughly double the personal-registration rate up to 2,500cc, rising to about 2.6&ndash;2.8&times; above that. Non-saloon vehicles pay the same rate regardless of registration type.</li>
                         <li><strong>Electric vehicles (EV):</strong> from 1 January 2026, JPJ taxes EVs by motor power output (kW) instead of engine cc, across power bands with no saloon/non-saloon distinction. Figures here are interpolated from the published band boundaries and are approximate &mdash; confirm your exact figure via MyJPJ.</li>
@@ -356,7 +356,7 @@
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
-                    <div class="space-y-4 text-xs text-slate-600 dark:text-slate-400">
+                    <div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">How is Malaysia road tax calculated for petrol/diesel cars?</p>
                             <p>A flat fee applies up to 1,600cc, then a base rate plus a per-cc surcharge above each bracket's floor, up to 3,000cc and beyond. Saloon and non-saloon vehicles use different tables.</p>
@@ -389,11 +389,11 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
                         </li>
                         <li>
                             <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
                         </li>
                     </ul>
                 </div>
@@ -402,19 +402,19 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
                         </li>
                         <li>
                             <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
                         </li>
                         <li>
                             <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
                         </li>
                         <li>
                             <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Savings Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
                         </li>
                     </ul>
                 </div>
@@ -423,20 +423,20 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
                         </li>
                         <li>
                             <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Road Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
                         </li>
                         <li>
                             <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-sm text-slate-500 dark:text-slate-400">
                 <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
                 <p class="flex gap-5">
                     <a href="../about/" class="hover:underline">About</a>

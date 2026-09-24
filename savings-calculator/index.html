@@ -202,15 +202,15 @@
         <!-- Mobile summary bar: headline results stay in view while editing inputs (mirrored by assets/site.js) -->
         <div class="kd-sticky lg:hidden sticky top-0 z-30 -mx-4 px-4 py-2 mb-4 bg-blue-900 text-white shadow-md flex justify-around items-center gap-2" aria-hidden="true">
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Future value</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Future value</p>
                 <p data-kd-mirror="result-future" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Real value</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Real value</p>
                 <p data-kd-mirror="result-real" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
             <div class="text-center">
-                <p class="text-[11px] uppercase tracking-wide text-blue-200 leading-none">Interest</p>
+                <p class="text-xs uppercase tracking-wide text-blue-200 leading-none">Interest</p>
                 <p data-kd-mirror="result-interest" class="text-sm font-black leading-tight whitespace-nowrap">&nbsp;</p>
             </div>
         </div>
@@ -219,54 +219,54 @@
             <div class="lg:col-span-4 space-y-4">
                 <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow border border-slate-200 dark:border-slate-700">
                     <div class="flex items-center justify-between mb-4 border-b dark:border-slate-700 pb-2">
-                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-[11px] tracking-widest">Your Savings Plan</h3>
+                        <h3 class="text-blue-900 dark:text-blue-400 font-bold uppercase text-xs tracking-widest">Your Savings Plan</h3>
                         <button type="button" onclick="if(confirm('Reset all inputs to default values?')) resetToDefaults()"
-                            class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
+                            class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-red-600 transition">Reset</button>
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div>
-                            <label for="initialInvestment" class="text-[11px] font-bold text-slate-400 uppercase">Initial Investment (RM)</label>
+                            <label for="initialInvestment" class="text-xs font-bold text-slate-400 uppercase">Initial Investment (RM)</label>
                             <input type="text" inputmode="decimal" id="initialInvestment" value="10,000"
-                                class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-xs text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                                class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
                         </div>
                         <div>
-                            <label for="monthlyContribution" class="text-[11px] font-bold text-slate-400 uppercase">Monthly Contribution (RM)</label>
+                            <label for="monthlyContribution" class="text-xs font-bold text-slate-400 uppercase">Monthly Contribution (RM)</label>
                             <input type="text" inputmode="decimal" id="monthlyContribution" value="500"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
-                            <p class="text-[11px] text-slate-400 mt-1">Use a negative number if you plan to withdraw monthly instead.</p>
+                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <p class="text-xs text-slate-400 mt-1">Use a negative number if you plan to withdraw monthly instead.</p>
                         </div>
                         <div>
-                            <label for="years" class="text-[11px] font-bold text-slate-400 uppercase">Length of Time (Years)</label>
+                            <label for="years" class="text-xs font-bold text-slate-400 uppercase">Length of Time (Years)</label>
                             <input type="number" id="years" value="20" min="0" step="1"
-                                class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                         </div>
                         <div>
-                            <label for="interestRate" class="text-[11px] font-bold text-slate-400 uppercase">Estimated Annual Interest Rate (%)</label>
+                            <label for="interestRate" class="text-xs font-bold text-slate-400 uppercase">Estimated Annual Interest Rate (%)</label>
                             <input type="number" id="interestRate" value="3" step="0.1"
-                                class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
-                            <p class="text-[11px] text-slate-400 mt-1">Rough guide: Fixed Deposit ~2.5-3.5% &middot; ASB ~4-5.5% &middot; EPF dividend ~5-6% &middot; unit trust/equity ~6-8% historical. Not guaranteed.</p>
+                                class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <p class="text-xs text-slate-400 mt-1">Rough guide: Fixed Deposit ~2.5-3.5% &middot; ASB ~4-5.5% &middot; EPF dividend ~5-6% &middot; unit trust/equity ~6-8% historical. Not guaranteed.</p>
                         </div>
                         <div>
-                            <label for="inflationRate" class="text-[11px] font-bold text-slate-400 uppercase">Assumed Inflation Rate (%)</label>
+                            <label for="inflationRate" class="text-xs font-bold text-slate-400 uppercase">Assumed Inflation Rate (%)</label>
                             <input type="number" id="inflationRate" value="3" step="0.1"
-                                class="w-full p-2 bg-slate-50 border rounded text-xs font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
-                            <p class="text-[11px] text-slate-400 mt-1">Malaysia's CPI has historically averaged roughly 2-3% a year long-run. Used to show what your future balance is worth in today's money.</p>
+                                class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <p class="text-xs text-slate-400 mt-1">Malaysia's CPI has historically averaged roughly 2-3% a year long-run. Used to show what your future balance is worth in today's money.</p>
                         </div>
                         <div>
-                            <label class="text-[11px] font-bold text-slate-400 uppercase">Compounding Frequency</label>
-                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-[11px] font-black uppercase mt-1">
+                            <label class="text-xs font-bold text-slate-400 uppercase">Compounding Frequency</label>
+                            <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                 <button type="button" id="compound-mode-monthly" onclick="setCompoundMode('monthly')" class="flex-1 py-2 transition">Monthly</button>
                                 <button type="button" id="compound-mode-annually" onclick="setCompoundMode('annually')" class="flex-1 py-2 transition">Annually</button>
                             </div>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
+                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
                         This is a planning guide only &mdash; actual returns depend on the specific product you choose and are never guaranteed.
                     </p>
                 </div>
                 <div class="kd-actions flex flex-col items-start gap-2">
                     <button type="button" onclick="window.print()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-slate-800 transition">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -274,34 +274,34 @@
                         Download Report
                     </button>
                     <button type="button" onclick="kdShareCalculation()"
-                        class="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
+                        class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 hover:text-blue-900 transition">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13.828 10.172a4 4 0 010 5.656l-4 4a4 4 0 01-5.656-5.656l1.5-1.5M10.172 13.828a4 4 0 010-5.656l4-4a4 4 0 015.656 5.656l-1.5 1.5" />
                         </svg>
                         Share This Calculation
                     </button>
-                    <span id="kd-share-msg" role="status" class="text-[11px] text-green-600 dark:text-green-400 font-bold"></span>
+                    <span id="kd-share-msg" role="status" class="text-xs text-green-600 dark:text-green-400 font-bold"></span>
                 </div>
             </div>
 
             <div class="lg:col-span-8 space-y-4">
                 <div class="grid grid-cols-2 gap-4 items-stretch">
                     <div class="metric-bubble bg-blue-900 p-6 rounded-2xl shadow-lg border border-blue-800 text-center text-white flex flex-col justify-between">
-                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-widest mb-2">Future Value</p>
+                        <p class="text-xs font-bold text-blue-200 uppercase tracking-widest mb-2">Future Value</p>
                         <p id="result-future" class="text-2xl font-black whitespace-nowrap leading-tight">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center flex flex-col justify-between">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Contributions</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Contributions</p>
                         <p id="result-contributions" class="text-2xl font-black text-slate-900 dark:text-slate-100">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center flex flex-col justify-between">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Interest Earned</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Total Interest Earned</p>
                         <p id="result-interest" class="text-2xl font-black text-green-600 dark:text-green-400">RM0</p>
                     </div>
                     <div class="metric-bubble bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 text-center flex flex-col justify-between">
-                        <p class="text-[11px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Real Value (Today's Money)</p>
-                        <p id="result-real" class="text-2xl font-black whitespace-nowrap leading-tight" style="color: #C9A227;">RM0</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-2 tracking-widest">Real Value (Today's Money)</p>
+                        <p id="result-real" class="kd-gold text-2xl font-black whitespace-nowrap leading-tight">RM0</p>
                     </div>
                 </div>
 
@@ -311,13 +311,13 @@
 
                 <div class="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
                     <button type="button" onclick="toggleTable()" id="toggle-table-btn"
-                        class="w-full flex items-center justify-between px-4 py-3 text-[11px] font-black uppercase tracking-widest text-blue-700 dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                        class="w-full flex items-center justify-between px-4 py-3 text-xs font-black uppercase tracking-widest text-blue-700 dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition">
                         <span>Show Year-by-Year Table</span>
                         <span id="toggle-table-icon">&#9662;</span>
                     </button>
                     <div id="table-wrapper" class="hidden overflow-x-auto">
                         <table class="w-full text-center min-w-[600px]">
-                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-[11px] font-black text-slate-400 uppercase">
+                            <thead class="bg-slate-50 dark:bg-slate-900 border-b dark:border-slate-700 text-xs font-black text-slate-400 uppercase">
                                 <tr>
                                     <th class="p-4">Year</th>
                                     <th class="p-4">Balance</th>
@@ -326,18 +326,18 @@
                                     <th class="p-4">Real Value (Today's Money)</th>
                                 </tr>
                             </thead>
-                            <tbody id="projection-table" class="text-xs divide-y divide-slate-100 dark:divide-slate-700"></tbody>
+                            <tbody id="projection-table" class="text-sm divide-y divide-slate-100 dark:divide-slate-700"></tbody>
                         </table>
                     </div>
                 </div>
 
                 <details class="kd-details bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-left">
                     <summary class="flex items-center justify-between gap-2 cursor-pointer select-none">
-                        <h4 class="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
+                        <h4 class="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">How This Is Calculated</h4>
                         <span class="kd-chevron text-slate-400 transition-transform"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
                     </summary>
                     <div class="mt-3">
-                    <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+                    <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
                         <li><strong>Monthly compounding:</strong> each month, your contribution is added and interest is calculated on the running balance &mdash; interest compounds every month.</li>
                         <li><strong>Annual compounding:</strong> the balance you start the year with earns the full annual interest rate; that year's monthly contributions are then added and start compounding from the following year onward.</li>
                         <li><strong>Withdrawals:</strong> enter a negative Monthly Contribution to model regular withdrawals instead of deposits.</li>
@@ -351,7 +351,7 @@
 
                 <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                     <h4 class="text-[13px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Frequently Asked Questions</h4>
-                    <div class="space-y-4 text-xs text-slate-600 dark:text-slate-400">
+                    <div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
                         <div>
                             <p class="font-bold text-slate-800 dark:text-slate-200 mb-1">How is compound interest calculated in this tool?</p>
                             <p>Your balance is simulated month by month: contributions are added, and interest is applied either every month or once a year depending on the compounding frequency you choose.</p>
@@ -388,11 +388,11 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../property-roi-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Property ROI Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Upfront cash, cashflow, yield and a 30-year projection</p>
                         </li>
                         <li>
                             <a href="../tenant-rental-quote-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Tenant Rental Quote</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Move-in costs to send your tenant on WhatsApp</p>
                         </li>
                     </ul>
                 </div>
@@ -401,19 +401,19 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Salary Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Take-home pay after EPF, SOCSO, EIS and PCB</p>
                         </li>
                         <li>
                             <a href="../epf-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">EPF Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Project your KWSP savings at retirement</p>
                         </li>
                         <li>
                             <a href="../income-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Income Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">YA2025 tax payable after reliefs</p>
                         </li>
                         <li>
                             <a href="../savings-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline" aria-current="page">Savings Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Compound interest, adjusted for inflation</p>
                         </li>
                     </ul>
                 </div>
@@ -422,20 +422,20 @@
                     <ul class="space-y-3">
                         <li>
                             <a href="../hire-purchase-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Hire Purchase Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Monthly instalment: flat rate vs reducing balance</p>
                         </li>
                         <li>
                             <a href="../road-tax-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Road Tax Calculator</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">JPJ road tax by engine cc or motor kW</p>
                         </li>
                         <li>
                             <a href="../car-tco-calculator/" class="text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline">Car Cost of Ownership</a>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">The true monthly cost of owning a car</p>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-3 justify-between text-sm text-slate-500 dark:text-slate-400">
                 <p>&copy; 2026 KiraDulu &middot; Estimates only, not financial advice.</p>
                 <p class="flex gap-5">
                     <a href="../about/" class="hover:underline">About</a>
