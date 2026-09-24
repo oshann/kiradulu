@@ -104,14 +104,32 @@
         syncDarkIcons();
         styleCharts();
 
-        // Two-column input grids where every cell is just "label + input/select" get .kd-pairs
+        // Two-column input grids where every cell is just "label + input/select/.kd-field" get .kd-pairs
         // (see site.css) so their labels and inputs line up row by row.
         document.querySelectorAll('main .grid-cols-2').forEach(grid => {
             const cells = [...grid.children];
             const isPair = cell => cell.tagName === 'DIV' && cell.children.length === 2
-                && cell.children[0].tagName === 'LABEL' && /^(INPUT|SELECT)$/.test(cell.children[1].tagName);
+                && cell.children[0].tagName === 'LABEL'
+                && (/^(INPUT|SELECT)$/.test(cell.children[1].tagName) || cell.children[1].classList.contains('kd-field'));
             if (cells.length && cells.every(isPair)) grid.classList.add('kd-pairs');
         });
+
+        // Units inside input boxes (.kd-field): pad the input by the unit's measured width so the
+        // value never runs under "RM" or "% p.a." (the inline padding is only a no-JS estimate).
+        // Fields inside hidden toggles (e.g. EV-only inputs) have no size until shown, so re-fit
+        // after any click (every show/hide toggle is a click), on resize and on load.
+        const fitField = field => {
+            const input = field.querySelector('input');
+            const pre = field.querySelector('.kd-prefix');
+            const suf = field.querySelector('.kd-suffix');
+            if (pre && pre.offsetWidth) input.style.paddingLeft = (pre.offsetLeft + pre.offsetWidth + 6) + 'px';
+            if (suf && suf.offsetWidth) input.style.paddingRight = (field.clientWidth - suf.offsetLeft + 6) + 'px';
+        };
+        const fitAll = () => document.querySelectorAll('.kd-field').forEach(fitField);
+        fitAll();
+        window.addEventListener('load', fitAll);
+        window.addEventListener('resize', fitAll);
+        document.addEventListener('click', () => setTimeout(fitAll, 0));
 
         // --- Desktop dropdowns: hover opens them (CSS); click/tap toggles for touch and keyboards ---
         const dropdowns = document.querySelectorAll('.kd-dd');

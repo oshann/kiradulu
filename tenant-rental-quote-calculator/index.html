@@ -193,13 +193,14 @@
                         <div class="p-8 space-y-6">
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-6 text-left">
                     <div>
-                        <label for="rentalFee" class="block text-xs font-bold text-slate-500 uppercase mb-1">Monthly Rental
-                            (RM)</label>
-                        <input type="text" inputmode="decimal" id="rentalFee" value="4,400"
-                            class="comma-fmt w-full p-3 bg-slate-50 border rounded-lg font-bold text-blue-900 outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-blue-300">
+                        <label for="rentalFee" class="kd-label">Monthly rent</label>
+                        <div class="kd-field">
+                            <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                            <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="rentalFee" value="4,400" class="comma-fmt w-full p-3 bg-slate-50 border rounded-lg font-bold text-blue-900 outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-blue-300">
+                        </div>
                     </div>
                     <div>
-                        <label for="tenure" class="block text-xs font-bold text-slate-500 uppercase mb-1">Tenure (Years)</label>
+                        <label for="tenure" class="kd-label">Tenancy period</label>
                         <select id="tenure" onchange="autoUpdateDeposits()"
                             class="w-full p-3 bg-slate-50 border rounded-lg outline-none focus:border-blue-500 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             <option value="1">1 Year</option>
@@ -208,38 +209,46 @@
                         </select>
                     </div>
                     <div>
-                        <label for="secDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1">Security Deposit
-                            (mths)</label>
-                        <input type="number" id="secDepMths" value="2" step="0.5"
-                            class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                        <label for="secDepMths" class="kd-label">Security deposit</label>
+                        <div class="kd-field">
+                            <input style="padding-left: 0.75rem; padding-right: 2.90rem" type="number" id="secDepMths" value="2" step="0.5" class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <span class="kd-affix kd-suffix" aria-hidden="true">mths</span>
+                        </div>
                     </div>
                     <div>
-                        <label for="utilDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1 block">Utility Deposit
-                            (mths)</label>
-                        <input type="number" id="utilDepMths" value="0.5" step="0.1"
-                            class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                        <label for="utilDepMths" class="kd-label">Utility deposit</label>
+                        <div class="kd-field">
+                            <input style="padding-left: 0.75rem; padding-right: 2.90rem" type="number" id="utilDepMths" value="0.5" step="0.1" class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <span class="kd-affix kd-suffix" aria-hidden="true">mths</span>
+                        </div>
                     </div>
                     <div>
-                        <label for="renoDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1 block">Renovation Deposit
-                            (mths)</label>
-                        <input type="number" id="renoDepMths" value="0" step="0.1"
-                            class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                        <label for="renoDepMths" class="kd-label">Renovation deposit</label>
+                        <div class="kd-field">
+                            <input style="padding-left: 0.75rem; padding-right: 2.90rem" type="number" id="renoDepMths" value="0" step="0.1" class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <span class="kd-affix kd-suffix" aria-hidden="true">mths</span>
+                        </div>
                     </div>
                     <div>
-                        <label for="adminFee" class="block text-xs font-bold text-slate-500 uppercase mb-1">Tenancy Agreement Fee
-                            (RM)</label>
-                        <input type="text" inputmode="decimal" id="adminFee" value="0" class="comma-fmt w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                        <label for="adminFee" class="kd-label">Tenancy agreement fee</label>
+                        <div class="kd-field">
+                            <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                            <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="adminFee" value="0" class="comma-fmt w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                        </div>
                     </div>
                     <div>
-                        <label for="agencyRate" class="block text-xs font-bold text-slate-500 uppercase mb-1">Agency Fee
-                            (mths)</label>
-                        <input type="number" id="agencyRate" value="0" step="0.1"
-                            class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                        <label for="agencyRate" class="kd-label">Agency fee</label>
+                        <div class="kd-field">
+                            <input style="padding-left: 0.75rem; padding-right: 2.90rem" type="number" id="agencyRate" value="0" step="0.1" class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <span class="kd-affix kd-suffix" aria-hidden="true">mths</span>
+                        </div>
                     </div>
                     <div>
-                        <label for="extraDepMths" class="text-xs font-bold text-slate-500 uppercase mb-1">Other Deposit (mths)</label>
-                        <input type="number" id="extraDepMths" value="0" step="0.5"
-                            class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                        <label for="extraDepMths" class="kd-label">Other deposit</label>
+                        <div class="kd-field">
+                            <input style="padding-left: 0.75rem; padding-right: 2.90rem" type="number" id="extraDepMths" value="0" step="0.5" class="w-full p-3 bg-slate-50 border rounded-lg dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <span class="kd-affix kd-suffix" aria-hidden="true">mths</span>
+                        </div>
                     </div>
                 </div>
                 <div class="flex items-center gap-2 p-3 bg-blue-50 rounded-lg border border-blue-100 dark:bg-blue-950 dark:border-blue-900">

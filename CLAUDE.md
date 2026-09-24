@@ -37,6 +37,11 @@ There is no test suite. Verify in the browser preview (`.claude/launch.json` ser
 
   Income Tax and Property ROI keep their own older `?field=value` share links.
 
+Input fields follow one convention across pages:
+- a short sentence-case `<label class="kd-label" for="id">`
+- the unit lives inside the box, not in the label: `<div class="kd-field"><span class="kd-affix kd-prefix">RM</span><input …><span class="kd-affix kd-suffix">/yr</span></div>`
+- site.js measures the affixes and pads the input to fit, and tags two-column label+input grids `.kd-pairs` so paired labels and inputs line up.
+
 The header (`<!-- site-header -->`) and footer (`<!-- site-footer -->`) are identical copies on every page, with the current page highlighted. Change them on all pages together.
 
 ## Property ROI page

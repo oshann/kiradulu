@@ -219,18 +219,22 @@
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div>
-                            <label for="grossSalary" class="text-xs font-bold text-slate-400 uppercase">Gross Monthly Salary (RM)</label>
-                            <input type="text" inputmode="decimal" id="grossSalary" value="6,000"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <label for="grossSalary" class="kd-label">Gross monthly salary</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="grossSalary" value="6,000" class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            </div>
                         </div>
                         <div>
-                            <label for="bonus" class="text-xs font-bold text-slate-400 uppercase">Bonus (RM)</label>
-                            <input type="text" inputmode="decimal" id="bonus" value="0"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <label for="bonus" class="kd-label">Bonus</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="bonus" value="0" class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            </div>
                             <p class="text-xs text-slate-400 mt-1">Included in EPF & tax below; exempt from SOCSO/EIS.</p>
                         </div>
                         <div>
-                            <label for="ageBand" class="text-xs font-bold text-slate-400 uppercase">Age</label>
+                            <label for="ageBand" class="kd-label">Age</label>
                             <select id="ageBand"
                                 class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                                 <option value="under60" selected>Below 60</option>

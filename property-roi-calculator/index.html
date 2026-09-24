@@ -240,7 +240,7 @@
                     <div class="space-y-3" id="input-container">
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="propType" class="text-xs font-bold text-slate-400 uppercase">Prop Type</label>
+                                <label for="propType" class="kd-label">Property type</label>
                                 <select id="propType"
                                     class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                                     <option value="new" selected>New</option>
@@ -248,7 +248,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="nationality" class="text-xs font-bold text-slate-400 uppercase">Nationality</label>
+                                <label for="nationality" class="kd-label">Nationality</label>
                                 <select id="nationality"
                                     class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                                     <option value="local">Local</option>
@@ -258,7 +258,7 @@
                         </div>
 
                         <div>
-                            <label for="propClass" class="text-xs font-bold text-slate-400 uppercase">Property Class</label>
+                            <label for="propClass" class="kd-label">Property class</label>
                             <select id="propClass"
                                 class="w-full p-2 bg-blue-50 border border-blue-100 rounded text-sm font-bold text-center text-blue-800 dark:bg-slate-800 dark:border-blue-900 dark:text-blue-300">
                                 <option value="landed">Landed House</option>
@@ -267,25 +267,31 @@
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="price" class="text-xs font-bold text-slate-400 uppercase">Property Price (RM)</label>
-                                <input type="text" inputmode="decimal" id="price" value="650,000"
-                                    class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                <label for="price" class="kd-label">Property price</label>
+                                <div class="kd-field">
+                                    <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                    <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="price" value="650,000" class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                </div>
                             </div>
                             <div>
-                                <label for="loanTenure" class="text-xs font-bold text-slate-400 uppercase">Loan Tenure (Years)</label>
-                                <input type="number" id="loanTenure" value="25"
-                                    class="w-full p-2 bg-slate-50 border rounded-lg text-sm outline-none focus:border-blue-500 text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                <label for="loanTenure" class="kd-label">Loan tenure</label>
+                                <div class="kd-field">
+                                    <input style="padding-left: 0.75rem; padding-right: 2.45rem" type="number" id="loanTenure" value="25" class="w-full p-2 bg-slate-50 border rounded-lg text-sm outline-none focus:border-blue-500 text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <span class="kd-affix kd-suffix" aria-hidden="true">yrs</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="depositPerc" class="text-xs font-bold text-slate-400 uppercase">Down Payment %</label>
-                                <input type="number" id="depositPerc" value="10"
-                                    class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                <label for="depositPerc" class="kd-label">Down payment</label>
+                                <div class="kd-field">
+                                    <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="depositPerc" value="10" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                </div>
                             </div>
                             <div>
-                                <label for="depositValue" class="text-xs font-bold text-slate-400 uppercase">Down Payment (RM)</label>
+                                <label for="depositValue" class="kd-label">Amount</label>
                                 <input type="text" id="depositValue" disabled
                                     class="w-full p-2 bg-gray-100 border rounded text-sm text-center font-bold text-slate-500 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400">
                             </div>
@@ -296,32 +302,42 @@
                             Operations</h3>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="interest" class="text-xs font-bold text-slate-400 uppercase">Int % (Annual)</label>
-                                <input type="number" id="interest" value="3.5" step="0.1"
-                                    class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                <label for="interest" class="kd-label">Interest rate</label>
+                                <div class="kd-field">
+                                    <input style="padding-left: 0.75rem; padding-right: 3.80rem" type="number" id="interest" value="3.5" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <span class="kd-affix kd-suffix" aria-hidden="true">% p.a.</span>
+                                </div>
                             </div>
                             <div>
-                                <label for="rental" class="text-xs font-bold text-slate-400 uppercase">Monthly Rent (RM)</label>
-                                <input type="text" inputmode="decimal" id="rental" value="2,500"
-                                    class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-800 dark:border-blue-900 dark:text-blue-300">
+                                <label for="rental" class="kd-label">Monthly rent</label>
+                                <div class="kd-field">
+                                    <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                    <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="rental" value="2,500" class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-800 dark:border-blue-900 dark:text-blue-300">
+                                </div>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="sqft" class="text-xs font-bold text-slate-400 uppercase">Sqft (Built-up)</label>
-                                <input type="text" inputmode="decimal" id="sqft" value="896"
-                                    class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                <label for="sqft" class="kd-label">Built-up size</label>
+                                <div class="kd-field">
+                                    <input style="padding-left: 0.75rem; padding-right: 2.90rem" type="text" inputmode="decimal" id="sqft" value="896" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <span class="kd-affix kd-suffix" aria-hidden="true">sqft</span>
+                                </div>
                             </div>
                             <div>
-                                <label for="maintSqft" class="text-xs font-bold text-slate-400 uppercase">Maint/Sqft (RM)</label>
-                                <input type="number" id="maintSqft" value="0.30" step="0.01"
-                                    class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                <label for="maintSqft" class="kd-label">Maintenance per sqft</label>
+                                <div class="kd-field">
+                                    <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                    <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="number" id="maintSqft" value="0.30" step="0.01" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                </div>
                             </div>
                         </div>
                         <div>
-                            <label for="setup" class="text-xs font-bold text-slate-400 uppercase">First Reno Cost (RM)</label>
-                            <input type="text" inputmode="decimal" id="setup" value="20,000"
-                                class="comma-fmt w-full p-2 border border-red-100 bg-red-50 rounded text-sm text-black-700 text-center dark:bg-slate-800 dark:border-red-900 dark:text-slate-100">
+                            <label for="setup" class="kd-label">First renovation cost</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="setup" value="20,000" class="comma-fmt w-full p-2 border border-red-100 bg-red-50 rounded text-sm text-black-700 text-center dark:bg-slate-800 dark:border-red-900 dark:text-slate-100">
+                            </div>
                         </div>
 
 
@@ -334,26 +350,34 @@
                             </summary>
                             <div class="grid grid-cols-2 gap-2 mt-3">
                                 <div>
-                                    <label for="levyPerc" class="text-xs font-bold text-slate-400 uppercase">Levy %</label>
-                                    <input type="number" id="levyPerc" value="0" step="0.1"
-                                        class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <label for="levyPerc" class="kd-label">State levy</label>
+                                    <div class="kd-field">
+                                        <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="levyPerc" value="0" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                    </div>
                                 </div>
                                 <div>
-                                    <label for="stampDutyPerc" class="text-xs font-bold text-slate-400 uppercase">MOT %</label>
-                                    <input type="number" id="stampDutyPerc" value="3" step="0.1"
-                                        class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <label for="stampDutyPerc" class="kd-label">Stamp duty (MOT)</label>
+                                    <div class="kd-field">
+                                        <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="stampDutyPerc" value="3" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-2 mt-2">
                                 <div>
-                                    <label for="consentFee" class="text-xs font-bold text-slate-400 uppercase">Consent (RM)</label>
-                                    <input type="text" inputmode="decimal" id="consentFee" value="0"
-                                        class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <label for="consentFee" class="kd-label">Consent fee</label>
+                                    <div class="kd-field">
+                                        <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                        <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="consentFee" value="0" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    </div>
                                 </div>
                                 <div>
-                                    <label for="lawyerPerc" class="text-xs font-bold text-slate-400 uppercase">Legal %</label>
-                                    <input type="number" id="lawyerPerc" value="1" step="0.1"
-                                        class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                    <label for="lawyerPerc" class="kd-label">Legal fee</label>
+                                    <div class="kd-field">
+                                        <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="lawyerPerc" value="1" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                    </div>
                                 </div>
                             </div>
                         </details>
@@ -622,7 +646,7 @@
                             <div class="space-y-3" id="compare-input-container-b">
                                 <div class="grid grid-cols-2 gap-2">
                                     <div>
-                                        <label for="propTypeB" class="text-xs font-bold text-slate-400 uppercase">Prop Type</label>
+                                        <label for="propTypeB" class="kd-label">Property type</label>
                                         <select id="propTypeB"
                                             class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                                             <option value="new" selected>New</option>
@@ -630,7 +654,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label for="propClassB" class="text-xs font-bold text-slate-400 uppercase">Property Class</label>
+                                        <label for="propClassB" class="kd-label">Property class</label>
                                         <select id="propClassB"
                                             class="w-full p-2 bg-blue-50 border border-blue-100 rounded text-sm font-bold text-center text-blue-800 dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
                                             <option value="landed" selected>Landed House</option>
@@ -640,50 +664,66 @@
                                 </div>
                                 <div class="grid grid-cols-2 gap-2">
                                     <div>
-                                        <label for="priceB" class="text-xs font-bold text-slate-400 uppercase">Price (RM)</label>
-                                        <input type="text" inputmode="decimal" id="priceB" value="1,230,000"
-                                            class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                        <label for="priceB" class="kd-label">Property price</label>
+                                        <div class="kd-field">
+                                            <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                            <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="priceB" value="1,230,000" class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                                        </div>
                                     </div>
                                     <div>
-                                        <label for="loanTenureB" class="text-xs font-bold text-slate-400 uppercase">Loan Tenure (Yrs)</label>
-                                        <input type="number" id="loanTenureB" value="30"
-                                            class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div>
-                                        <label for="depositPercB" class="text-xs font-bold text-slate-400 uppercase">Down Payment %</label>
-                                        <input type="number" id="depositPercB" value="10"
-                                            class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
-                                    </div>
-                                    <div>
-                                        <label for="interestB" class="text-xs font-bold text-slate-400 uppercase">Interest % p.a.</label>
-                                        <input type="number" id="interestB" value="3.5" step="0.1"
-                                            class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <label for="loanTenureB" class="kd-label">Loan tenure</label>
+                                        <div class="kd-field">
+                                            <input style="padding-left: 0.75rem; padding-right: 2.45rem" type="number" id="loanTenureB" value="30" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <span class="kd-affix kd-suffix" aria-hidden="true">yrs</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-2">
                                     <div>
-                                        <label for="rentalB" class="text-xs font-bold text-slate-400 uppercase">Monthly Rent (RM)</label>
-                                        <input type="text" inputmode="decimal" id="rentalB" value="4,000"
-                                            class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <label for="depositPercB" class="kd-label">Down payment</label>
+                                        <div class="kd-field">
+                                            <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="depositPercB" value="10" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                        </div>
                                     </div>
                                     <div>
-                                        <label for="sqftB" class="text-xs font-bold text-slate-400 uppercase">Sqft (Built-up)</label>
-                                        <input type="text" inputmode="decimal" id="sqftB" value="1,750"
-                                            class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <label for="interestB" class="kd-label">Interest rate</label>
+                                        <div class="kd-field">
+                                            <input style="padding-left: 0.75rem; padding-right: 3.80rem" type="number" id="interestB" value="3.5" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <span class="kd-affix kd-suffix" aria-hidden="true">% p.a.</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-2">
                                     <div>
-                                        <label for="maintSqftB" class="text-xs font-bold text-slate-400 uppercase">Maint/Sqft (RM)</label>
-                                        <input type="number" id="maintSqftB" value="0.20" step="0.01"
-                                            class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <label for="rentalB" class="kd-label">Monthly rent</label>
+                                        <div class="kd-field">
+                                            <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                            <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="rentalB" value="4,000" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        </div>
                                     </div>
                                     <div>
-                                        <label for="setupB" class="text-xs font-bold text-slate-400 uppercase">First Reno Cost (RM)</label>
-                                        <input type="text" inputmode="decimal" id="setupB" value="150,000"
-                                            class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        <label for="sqftB" class="kd-label">Built-up size</label>
+                                        <div class="kd-field">
+                                            <input style="padding-left: 0.75rem; padding-right: 2.90rem" type="text" inputmode="decimal" id="sqftB" value="1,750" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <span class="kd-affix kd-suffix" aria-hidden="true">sqft</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <label for="maintSqftB" class="kd-label">Maintenance per sqft</label>
+                                        <div class="kd-field">
+                                            <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                            <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="number" id="maintSqftB" value="0.20" step="0.01" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="setupB" class="kd-label">First renovation cost</label>
+                                        <div class="kd-field">
+                                            <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                            <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="setupB" value="150,000" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                        </div>
                                     </div>
                                 </div>
                                 <details class="pt-3 border-t border-slate-100 dark:border-slate-700">
@@ -691,26 +731,34 @@
                                         Entry Fees % (defaults to 0 — tap to adjust)</summary>
                                     <div class="grid grid-cols-2 gap-2 mt-3">
                                         <div>
-                                            <label for="levyPercB" class="text-xs font-bold text-slate-400 uppercase">Levy %</label>
-                                            <input type="number" id="levyPercB" value="0" step="0.1"
-                                                class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <label for="levyPercB" class="kd-label">State levy</label>
+                                            <div class="kd-field">
+                                                <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="levyPercB" value="0" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                                <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                            </div>
                                         </div>
                                         <div>
-                                            <label for="stampDutyPercB" class="text-xs font-bold text-slate-400 uppercase">MOT %</label>
-                                            <input type="number" id="stampDutyPercB" value="0" step="0.1"
-                                                class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <label for="stampDutyPercB" class="kd-label">Stamp duty (MOT)</label>
+                                            <div class="kd-field">
+                                                <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="stampDutyPercB" value="0" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                                <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2 gap-2 mt-2">
                                         <div>
-                                            <label for="consentFeeB" class="text-xs font-bold text-slate-400 uppercase">Consent (RM)</label>
-                                            <input type="text" inputmode="decimal" id="consentFeeB" value="0"
-                                                class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <label for="consentFeeB" class="kd-label">Consent fee</label>
+                                            <div class="kd-field">
+                                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="consentFeeB" value="0" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            </div>
                                         </div>
                                         <div>
-                                            <label for="lawyerPercB" class="text-xs font-bold text-slate-400 uppercase">Legal %</label>
-                                            <input type="number" id="lawyerPercB" value="0" step="0.1"
-                                                class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                            <label for="lawyerPercB" class="kd-label">Legal fee</label>
+                                            <div class="kd-field">
+                                                <input style="padding-left: 0.75rem; padding-right: 1.55rem" type="number" id="lawyerPercB" value="0" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                                <span class="kd-affix kd-suffix" aria-hidden="true">%</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </details>

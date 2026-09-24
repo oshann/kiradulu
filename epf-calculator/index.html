@@ -216,30 +216,36 @@
                     <div class="space-y-3" id="input-container">
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="currentAge" class="text-xs font-bold text-slate-400 uppercase">Current Age</label>
+                                <label for="currentAge" class="kd-label">Current age</label>
                                 <input type="number" id="currentAge" value="30"
                                     class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                             </div>
                             <div>
-                                <label for="targetAge" class="text-xs font-bold text-slate-400 uppercase">Target Age</label>
+                                <label for="targetAge" class="kd-label">Target age</label>
                                 <input type="number" id="targetAge" value="60"
                                     class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                             </div>
                         </div>
                         <div>
-                            <label for="currentBalance" class="text-xs font-bold text-slate-400 uppercase">Current EPF Balance (RM)</label>
-                            <input type="text" inputmode="decimal" id="currentBalance" value="20,000"
-                                class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <label for="currentBalance" class="kd-label">Current EPF balance</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="currentBalance" value="20,000" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            </div>
                         </div>
                         <div>
-                            <label for="monthlySalary" class="text-xs font-bold text-slate-400 uppercase">Monthly Salary (RM)</label>
-                            <input type="text" inputmode="decimal" id="monthlySalary" value="5,000"
-                                class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                            <label for="monthlySalary" class="kd-label">Monthly salary</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="monthlySalary" value="5,000" class="comma-fmt w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                            </div>
                         </div>
                         <div>
-                            <label for="dividendRate" class="text-xs font-bold text-slate-400 uppercase">Assumed Annual Dividend Rate (%)</label>
-                            <input type="number" id="dividendRate" value="5.5" step="0.1"
-                                class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <label for="dividendRate" class="kd-label">Expected dividend rate</label>
+                            <div class="kd-field">
+                                <input style="padding-left: 0.75rem; padding-right: 3.80rem" type="number" id="dividendRate" value="5.5" step="0.1" class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                                <span class="kd-affix kd-suffix" aria-hidden="true">% p.a.</span>
+                            </div>
                         </div>
                     </div>
                     <p class="text-sm text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">

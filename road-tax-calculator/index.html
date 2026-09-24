@@ -215,7 +215,7 @@
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div class="relative">
-                            <label for="engineCc" class="text-xs font-bold text-slate-400 uppercase">Select Your Car (Optional)</label>
+                            <label for="carSearchInput" class="kd-label">Select your car (optional)</label>
                             <div class="relative mt-1">
                                 <input type="text" id="carSearchInput" autocomplete="off" placeholder="Search make or model, e.g. Myvi"
                                     class="w-full p-2 border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 rounded text-sm text-slate-700 dark:text-slate-200">
@@ -227,7 +227,7 @@
                         </div>
 
                         <div>
-                            <label class="text-xs font-bold text-slate-400 uppercase">Vehicle Type</label>
+                            <label class="kd-label">Vehicle type</label>
                             <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                 <button type="button" id="fuel-mode-petrol" onclick="setFuelMode('petrol')" class="flex-1 py-2 transition">Petrol/Diesel</button>
                                 <button type="button" id="fuel-mode-ev" onclick="setFuelMode('ev')" class="flex-1 py-2 transition">Electric (EV)</button>
@@ -236,19 +236,21 @@
 
                         <div id="petrol-fields">
                             <div>
-                                <label for="engineCc" class="text-xs font-bold text-slate-400 uppercase">Engine Capacity (cc)</label>
-                                <input type="number" id="engineCc" value="1600" step="10"
-                                    class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                                <label for="engineCc" class="kd-label">Engine capacity</label>
+                                <div class="kd-field">
+                                    <input style="padding-left: 0.75rem; padding-right: 2.00rem" type="number" id="engineCc" value="1600" step="10" class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                                    <span class="kd-affix kd-suffix" aria-hidden="true">cc</span>
+                                </div>
                             </div>
                             <div class="mt-3">
-                                <label for="motorKw" class="text-xs font-bold text-slate-400 uppercase">Body Type</label>
+                                <label class="kd-label">Body type</label>
                                 <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                     <button type="button" id="body-mode-saloon" onclick="setBodyMode('saloon')" class="flex-1 py-2 transition">Saloon</button>
                                     <button type="button" id="body-mode-nonsaloon" onclick="setBodyMode('nonsaloon')" class="flex-1 py-2 transition">Non-Saloon</button>
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <label class="text-xs font-bold text-slate-400 uppercase">Registration</label>
+                                <label class="kd-label">Registration</label>
                                 <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                     <button type="button" id="reg-mode-personal" onclick="setRegistrationMode('personal')" class="flex-1 py-2 transition">Personal</button>
                                     <button type="button" id="reg-mode-business" onclick="setRegistrationMode('business')" class="flex-1 py-2 transition">Business</button>
@@ -258,14 +260,16 @@
                         </div>
 
                         <div id="ev-fields" class="hidden">
-                            <label for="motorKw" class="text-xs font-bold text-slate-400 uppercase">Motor Power Output (kW)</label>
-                            <input type="number" id="motorKw" value="150" step="5"
-                                class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                            <label for="motorKw" class="kd-label">Motor power</label>
+                            <div class="kd-field">
+                                <input style="padding-left: 0.75rem; padding-right: 2.00rem" type="number" id="motorKw" value="150" step="5" class="w-full p-2 border border-blue-100 bg-blue-50 rounded text-sm text-blue-700 font-bold text-center dark:bg-slate-900 dark:border-blue-900 dark:text-blue-300">
+                                <span class="kd-affix kd-suffix" aria-hidden="true">kW</span>
+                            </div>
                             <p class="text-xs text-slate-400 mt-1">Use combined output for dual-motor / AWD EVs.</p>
                         </div>
 
                         <div>
-                            <label class="text-xs font-bold text-slate-400 uppercase">Region</label>
+                            <label class="kd-label">Region</label>
                             <div class="flex rounded overflow-hidden border border-slate-200 dark:border-slate-600 text-xs font-black uppercase mt-1">
                                 <button type="button" id="region-mode-peninsular" onclick="setRegionMode('peninsular')" class="flex-1 py-2 transition">Peninsular</button>
                                 <button type="button" id="region-mode-east" onclick="setRegionMode('east')" class="flex-1 py-2 transition">Sabah/Sarawak</button>

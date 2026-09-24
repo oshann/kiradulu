@@ -224,23 +224,29 @@
                     </div>
                     <div class="space-y-3" id="input-container">
                         <div>
-                            <label for="monthlySalary" class="text-xs font-bold text-slate-400 uppercase">Monthly Salary (RM)</label>
-                            <input type="text" inputmode="decimal" id="monthlySalary" value="8,333"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <label for="monthlySalary" class="kd-label">Monthly salary</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="monthlySalary" value="8,333" class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            </div>
                         </div>
                         <div>
-                            <label for="annualIncome" class="text-xs font-bold text-slate-400 uppercase">Annual Income (RM)</label>
-                            <input type="text" inputmode="decimal" id="annualIncome" value="100,000"
-                                class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            <label for="annualIncome" class="kd-label">Annual income</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="annualIncome" value="100,000" class="comma-fmt w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
+                            </div>
                         </div>
                         <div>
-                            <label for="annualEpf" class="text-xs font-bold text-slate-400 uppercase">Annual EPF Contribution (RM)</label>
-                            <input type="text" inputmode="decimal" id="annualEpf" value="6,600"
-                                class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <label for="annualEpf" class="kd-label">Annual EPF contribution</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="annualEpf" value="6,600" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            </div>
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div>
-                                <label for="maritalStatus" class="text-xs font-bold text-slate-400 uppercase">Marital Status</label>
+                                <label for="maritalStatus" class="kd-label">Marital status</label>
                                 <select id="maritalStatus"
                                     class="w-full p-2 bg-slate-50 border rounded text-sm font-bold text-center dark:bg-slate-900 dark:border-slate-600 dark:text-slate-100">
                                     <option value="single" selected>Single</option>
@@ -248,7 +254,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="numChildren" class="text-xs font-bold text-slate-400 uppercase">No. of Children (&lt;18)</label>
+                                <label for="numChildren" class="kd-label">Children under 18</label>
                                 <input type="number" id="numChildren" value="0" min="0"
                                     class="w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
                             </div>
@@ -258,9 +264,11 @@
                             <label for="claimSpouseRelief" class="text-sm font-bold text-slate-500 dark:text-slate-400 cursor-pointer">Claiming spouse relief (RM4,000)</label>
                         </div>
                         <div>
-                            <label for="otherReliefs" class="text-xs font-bold text-slate-400 uppercase">Other Reliefs (RM)</label>
-                            <input type="text" inputmode="decimal" id="otherReliefs" value="0"
-                                class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            <label for="otherReliefs" class="kd-label">Other reliefs</label>
+                            <div class="kd-field">
+                                <span class="kd-affix kd-prefix" aria-hidden="true">RM</span>
+                                <input style="padding-left: 2.00rem; padding-right: 0.75rem" type="text" inputmode="decimal" id="otherReliefs" value="0" class="comma-fmt w-full p-2 border rounded text-sm text-center dark:bg-slate-800 dark:border-slate-600 dark:text-slate-100">
+                            </div>
                         </div>
                     </div>
                     <p class="text-sm text-slate-400 dark:text-slate-500 mt-3 leading-relaxed">
